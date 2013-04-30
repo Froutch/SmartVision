@@ -20,7 +20,6 @@
 	{
 		echo "<center><a href='' data-role='button' data-theme='e' data-inline='true' data-transition='pop'>Vous avez entré un mauvais login ! :(</a></center>";
 	}
-echo var_dump($_SESSION);
 ?>
 
 

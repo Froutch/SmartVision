@@ -1,0 +1,5 @@
+<?php
+	include('vues/header.php');
+	include('vues/404.php');
+	include('vues/footer.php');
+?>

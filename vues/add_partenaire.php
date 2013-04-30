@@ -1,0 +1,37 @@
+<div class='add_partenaire'>
+	<h1>Ajouter un Partenaire</h1>
+	<border></border>
+	<h2>Champs obligatoires</h2>
+	<form action="" method="post">
+	<input type="text" name="nom" placeholder="Nom du Partenaire" required>
+	<input type="text" name="abreviation" placeholder="Abréviation" required><br>
+	<input type="text" name="mail_ct" placeholder="Mail Court Terme" required>
+	<input type="text" name="tel_ct" placeholder="Téléphone Court Terme" required><br>
+	<input type="text" name="mail_lt" placeholder="Mail Long Terme" required>
+	<input type="text" name="tel_lt" placeholder="Téléphone Long Terme" required><br>
+	Pays :
+	<select name="pays" style="width: 200px;">
+	<?php
+	$query = "SELECT langFR from countries ORDER BY langFR;";
+	$result = mysql_query($query);
+ 	while($data = mysql_fetch_array($result))
+	{
+		echo "<option>".$data['langFR']."</option>";
+	}
+
+	?>
+
+	</select>
+
+	<h2>Champs facultatifs</h2>
+	<div class='line'>
+		
+		<input type="checkbox" value="1" name="attention" />
+		à suivre de près (partenaire peu fiable)
+	</div>
+	<br>
+	<input type="text" name="skype" placeholder="Skype"><br>
+	<input type="text" name="adresse" placeholder="Adresse postale" style="width: 500px;"><br>
+	<TEXTAREA rows="3" name="commentaires" placeholder="Commentaires sur le Partenaire"></TEXTAREA><br>
+	<input type="submit" value="ajouter"/>
+</div>

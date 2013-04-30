@@ -1,0 +1,12 @@
+<?php
+	include('vues/header.php');
+	/*if($_GET['key_admin'] == '12345')
+	{
+		include('vues/login_admin.php');
+	}
+	else
+	{*/
+		include('vues/404.php');
+	/*}*/
+	include('vues/footer.php');
+?>

@@ -1,0 +1,276 @@
+#gestion des erreurs
+ErrorDocument 404 /index.php
+ErrorDocument 403 /index.php
+ErrorDocument 404 /index.php
+ErrorDocument 500 /index.php
+
+AuthName "Pages réservées exclusivement aux membres du Service Volontaire International.Téléphonez nous au +32 2 265 42 71(be) ou +33 3 66 72 90 20(fr)"
+AuthType Basic
+AuthUserFile "/homez.169/servicevlm/www/securite/.htpasswd"
+Require valid-user
+
+#video (http://wordpress.org/support/topic/plugin-w3-total-cache-header-expire)
+# force le save as
+#AddType application/octet-stream .divx .m4v .doc .mov .avi .pdf .xls .mp4 .asf .asx .wax .wmv .wmx .mov .qt .mpeg .mpg .mpe .flv
+
+deny from 110.4.12.170
+deny from 111.161.30.217
+deny from 113.106.99.240
+deny from 114.255.185.153
+deny from 114.80.140.35
+deny from 115.25.216.6
+deny from 116.112.66.102
+deny from 117.3.66.115
+deny from 117.34.72.51
+deny from 117.6.64.136
+deny from 119.7.221.135
+deny from 119.7.221.136
+deny from 119.7.221.137
+deny from 120.132.133.174
+deny from 120.199.57.179
+deny from 120.203.214.182
+deny from 120.203.215.6
+deny from 121.204.0.2
+deny from 121.251.254.213
+deny from 124.240.187.80
+deny from 124.89.36.178
+deny from 125.216.144.199
+deny from 125.88.75.139
+deny from 129.175.142.180
+deny from	142.54.169.26
+deny from 146.0.73.
+deny from 160.114.55.185
+deny from 163.30.162.8
+deny from	173.208.190.58
+deny from 173.44.37
+deny from 178.79.138.182
+deny from 180.149.96.69
+deny from 183.63.27.156
+deny from 188.134.23.240
+deny from 188.143.234.127
+deny from 188.75.223.43
+deny from 190.102.30.57
+deny from 192.151.148.154
+deny from 193.232.106.50
+deny from 193.87.30.163
+deny from 195.220.223.113
+deny from 195.64.211.173
+deny from 196.47.137.171
+deny from 198.155.189.86
+deny from 198.204.227.50
+deny from 198.204.228.226
+deny from 2.50.155.44
+deny from 200.73.17.70
+deny from	202.111.175.31
+deny from 202.116.160.89
+deny from 202.28.20.19
+deny from 202.91.248.74
+deny from 203.187.63.249
+deny from 203.86.60.8
+deny from 210.177.139.89
+deny from 210.22.135.125
+deny from 211.167.112.14
+deny from 211.167.112.15
+deny from 211.167.112.17
+deny from 211.167.112.18
+deny from 211.98.128.195
+deny from 216.230.142.194
+deny from 217.117.184.57
+deny from 218.108.168.166
+deny from 218.108.168.74
+deny from 218.108.169.104
+deny from 218.108.169.107
+deny from 218.194.91.238
+deny from 218.249.83.87
+deny from 218.66.104.131
+deny from 219.136.248.97
+deny from 221.10.40.232
+deny from 221.176.14.6
+deny from 221.179.173.170
+deny from 221.238.12.243
+deny from 221.6.207.141
+deny from 223.202.8.69
+deny from 31.34.21.175
+deny from 37.14.161.17
+deny from 38.111.147.84
+deny from 38.96.221.1
+deny from 41.190.
+deny from 41.207.163
+deny from 41.214.163
+deny from 41.216.45
+deny from 41.248.57.98
+deny from 46.17.96.
+deny from 46.17.99.
+deny from 46.53.195.
+deny from 49.212.167.222
+deny from 58.211.195.86
+deny from 58.251.57.78
+deny from 58.53.192.218
+deny from 59.37.168.16
+deny from 59.60.7.146
+deny from 60.10.12.
+deny from 61.131.11.52
+deny from 61.135.164.220
+deny from 61.147.79.111
+deny from 61.147.82.178
+deny from 67.228.64.202
+deny from 77.110.11.119
+deny from 78.28.234.26
+deny from 78.29.9.104
+deny from 79.143.180.150
+deny from 81.164.19.154
+deny from 81.240.70.173
+deny from 81.250.142.197
+deny from 82.229.239.127
+deny from 83.134.129.99
+deny from 85.15.97.203
+deny from 85.248.216.21
+deny from 87.103.197.93
+deny from 89.218.68.74
+deny from 90.80.43.141
+deny from 91.201.64.
+deny from 91.237.249.23
+deny from 92.114.71.13
+deny from 93.12.19.195
+deny from 93.166.121.107
+deny from 93.78.214.219
+deny from 94.242.237.127
+deny from 94.242.237.73
+deny from 95.131.9.186
+deny from 95.67.106.110
+deny from 96.47.224
+deny from 96.47.225
+
+#http://drupal.org/node/417866
+#<FilesMatch "\.(?i:pdf|doc|avi|mp3|mp4|mpeg|.zip|.txt|.odf|.rtf|.mov|.divx|.mov|.mpg|.flv|.wmv|.m4v|.asf)$">
+#  ForceType application/octet-stream
+#  Header set Content-Disposition attachment
+#</FilesMatch>
+
+#necessaire pour jplayer !!! debut
+
+AddType audio/x-mp3 mp3
+AddType audio/mp4 m4a
+AddType audio/ogg ogg
+AddType audio/ogg oga
+AddType audio/webm webma
+AddType audio/wav wav
+
+AddType video/mp4 mp4
+AddType video/mp4 m4v
+AddType video/ogg ogv
+AddType video/webm webm
+AddType video/webm webmv
+
+#necessaire pour jplayer !!! fin
+
+#force le passage pour le fils rss
+<Files "rss.php">
+ForceType 'application/rss+xml; charset=UTF-8'
+</Files>
+
+
+
+# protect the htaccess file
+<files .htaccess>
+order allow,deny
+deny from all
+</files>
+
+#info sur le htaccess : http://www.seomix.fr/web/developpement/guide-htaccess-performances-et-temps-de-chargement/#etags
+
+#on utilise la version 5 de php
+SetEnv PHP_VER 5.4
+
+# Enable ETag
+#FileETag MTime Size
+
+# KILL THEM ETAGS
+Header unset ETag
+FileETag none
+
+
+#supprime les phpsession dans l'url (sinon probleme avec p2p javascript)
+#SetEnv SESSION_USE_TRANS_SID 0
+
+
+# MOD_DEFLATE COMPRESSION
+SetOutputFilter DEFLATE
+AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml application/x-javascript application/x-httpd-php
+#Pour les navigateurs incompatibles
+BrowserMatch ^Mozilla/4 gzip-only-text/html
+BrowserMatch ^Mozilla/4\.0[678] no-gzip
+BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
+BrowserMatch \bMSI[E] !no-gzip !gzip-only-text/html
+#ne pas mettre en cache si ces fichiers le sont déjà
+SetEnvIfNoCase Request_URI \.(?:gif|jpe?g|png)$ no-gzip
+#les proxies doivent donner le bon contenu
+Header append Vary User-Agent env=!dont-vary
+
+# BEGIN Expire headers
+<IfModule mod_expires.c>
+ ExpiresActive On
+ ExpiresDefault "access plus 7200 seconds"
+ ExpiresByType image/jpg "access plus 2592000 seconds"
+ ExpiresByType image/jpeg "access plus 2592000 seconds"
+ ExpiresByType image/png "access plus 2592000 seconds"
+ ExpiresByType image/gif "access plus 2592000 seconds"
+ ExpiresByType image/ico "access plus 2592000 seconds"
+ ExpiresByType image/icon "access plus 2592000 seconds"
+ ExpiresByType image/x-icon "access plus 2592000 seconds"
+ ExpiresByType text/css "access plus 2592000 seconds"
+ ExpiresByType text/javascript "access plus 2592000 seconds"
+ ExpiresByType text/html "access plus 2592000 seconds"
+ ExpiresByType application/xhtml+xml "access plus 2592000 seconds"
+ ExpiresByType application/javascript A259200
+ ExpiresByType application/x-javascript "access plus 2592000 seconds"
+ ExpiresByType application/x-shockwave-flash "access plus 2592000 seconds"
+</IfModule>
+# END Expire headers
+
+# BEGIN Cache-Control Headers
+<IfModule mod_headers.c>
+ <FilesMatch "\\.(ico|jpe?g|png|gif|swf|gz|ttf|css)$">
+ Header set Cache-Control "max-age=2592000, public"
+ </FilesMatch>
+ <FilesMatch "\\.(css)$">
+ Header set Cache-Control "max-age=2592000, public"
+ </FilesMatch>
+ <FilesMatch "\\.(js)$">
+ Header set Cache-Control "max-age=2592000, private"
+ </FilesMatch>
+<filesMatch "\\.(html|htm)$">
+Header set Cache-Control "max-age=7200, public"
+</filesMatch>
+# Disable caching for scripts and other dynamic files
+<FilesMatch "\.(pl|php|cgi|spl|scgi|fcgi)$">
+Header unset Cache-Control
+</FilesMatch>
+</IfModule>
+# END Cache-Control Headers
+
+# protect the htaccess file
+<files .htaccess>
+order allow,deny
+deny from all
+</files>
+
+SetEnv SERVER_ADMIN pierre@servicevolontaire.org
+
+#info sur le htaccess : http://www.seomix.fr/web/developpement/guide-htaccess-performances-et-temps-de-chargement/#etags
+
+
+#Interdire l'indexation d'un dossier
+Options -Indexes
+
+
+
+
+
+
+
+
+
+
+
+

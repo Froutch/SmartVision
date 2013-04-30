@@ -1,0 +1,163 @@
+<?php
+
+function mdp()
+{
+	$chaine = "abcdefghijklmnopqrstuvwxyz0123456789"; // Types des caractères 
+	srand((double)microtime()*1000000);  
+	for($i=0; $i<8; $i++) // Nombre de caractères (ici 8)  
+	{  
+	$pass .= $chaine[rand()%strlen($chaine)]; // On génère le mot de passe de 8 caractères 
+	}  
+	return $pass; 
+}
+
+
+
+
+
+
+
+function add_partenaire($nom, $abreviation, $mail_ct, $tel_ct, $mail_lt, $tel_lt, $pays, $adresse, $attention, $commentaires)
+{
+	$query = 'INSERT INTO partenaires (nom, abreviation, mail_ct, tel_ct, mail_lt, tel_lt, pays, adresse, attention, commentaires) values ("'.$nom.'", "'.$abreviation.'","'.$mail_ct.'", "'.$tel_ct.'", "'.$mail_lt.'", "'.$tel_lt.'", "'.$pays.'", "'.$adresse.'", "'.$attention.'","'.$commentaires.'");';
+	mysql_query($query);
+
+	$query = 'SELECT max(id) FROM partenaires;';
+	$result = mysql_query($query);
+	
+	$return = mysql_result($result, 0);
+	
+	return $return;
+}
+
+function edit_partenaire($id, $nom, $abreviation, $mail_ct, $tel_ct, $mail_lt, $tel_lt, $pays, $adresse, $attention, $commentaires)
+{
+	$query = 'UPDATE partenaires SET nom = "'.$nom.'", abreviation = "'.$abreviation.'", mail_ct = "'.$mail_ct.'", tel_ct = "'.$tel_ct.'", mail_lt = "'.$mail_lt.'", tel_lt = "'.$tel_lt.'", pays = "'.$pays.'", adresse = "'.$adresse.'", attention = "'.$attention.'", commentaires = "'.$commentaires.'" WHERE id = '.$id;
+	mysql_query($query);
+}
+
+function delete_partenaire($id)
+{
+	$query = "DELETE FROM partenaires WHERE id = ".$id;
+	mysql_query($query);
+}
+
+function delete_volontaire($id)
+{
+	$query = "DELETE FROM volontaires WHERE id = ".$id;
+	mysql_query($query);
+
+	$query = "DELETE FROM volontaires_facultatif WHERE id_vol = ".$id;
+	mysql_query($query);
+}
+
+function add_volontaire($nom, $prenom, $mail, $date_naissance, $sexe, $nationalite)
+{
+	$query = 'INSERT INTO volontaires (nom, prenom, mail, date_naissance, sexe, nationalite) values ("'.$nom.'", "'.$prenom.'","'.$mail.'", "'.$date_naissance.'", "'.$sexe.'", "'.$nationalite.'");';
+	mysql_query($query);
+
+	$query = 'SELECT max(id) FROM volontaires;';
+	$result = mysql_query($query);
+	
+	$return = mysql_result($result, 0);
+	
+	return $return;
+}
+
+function add_volontaire_facultatif($id_vol, $adresse, $fixe, $mobile, $commentaires)
+{
+	$query = 'INSERT INTO volontaires_facultatif (id_vol, adresse, fixe, mobile, commentaires) values ("'.$id_vol.'", "'.$adresse.'","'.$fixe.'", "'.$mobile.'", "'.$commentaires.'");';
+	mysql_query($query);
+}
+
+
+
+function edit_volontaire($id, $nom, $prenom, $mail, $date_naissance, $sexe, $nationalite)
+{
+	$query = 'UPDATE volontaires SET nom = "'.$nom.'", prenom = "'.$prenom.'", mail = "'.$mail.'", date_naissance = "'.$date_naissance.'", sexe = "'.$sexe.'", nationalite = "'.$nationalite.'" WHERE id = '.$id;
+	mysql_query($query);
+}
+
+function edit_volontaire_facultatif($id_vol, $adresse, $fixe, $mobile, $commentaires)
+{
+	$query = 'UPDATE volontaires_facultatif SET adresse = "'.$adresse.'", fixe = "'.$fixe.'", mobile = "'.$mobile.'", commentaires = "'.$commentaires.'" WHERE id_vol = '.$id_vol;
+	mysql_query($query);
+}
+
+function add_mission($donnees)
+{
+	
+
+
+	$query = 'INSERT INTO missions SET `id` = ""';
+	mysql_query($query);
+
+	$query = 'SELECT max(id) FROM missions';
+	$result = mysql_query($query);
+	$id = mysql_result($result, 0);
+
+	foreach($donnees as $key => $value)
+	{
+		$donnees[$key] = str_replace ( '"', "'", $value);
+		$query = 'UPDATE missions SET `'.$key.'` = "'.$value.'" WHERE id = '.$id.';';
+		mysql_query($query);
+
+	}
+
+	$cle = mdp();
+	$query = 'UPDATE missions SET cle = "'.$cle.'" WHERE id = '.$id.';';
+		mysql_query($query);
+
+
+
+
+}
+
+
+function edit_mission($donnees, $id)
+{
+	
+
+	foreach($donnees as $key => $value)
+	{
+		$donnees[$key] = str_replace ( '"', "'", $value);
+		
+	
+		
+		$query = 'UPDATE missions SET `'.$key.'` = "'.$value.'" WHERE id = '.$id.';';
+		mysql_query($query);
+
+	}
+
+}
+
+
+function display_checkbox($col,$value, $commentaire)
+{
+		echo mdp();
+		echo"	<input type='checkbox' ";
+		if($value != '0000-00-00')
+		{
+			echo"checked='1' value='".$value."'";
+		}
+		else
+		{
+			echo"value='".date('Y-m-d', time())."' ";
+		}
+
+		echo "name='".$col."' />";
+		
+		echo $commentaire;
+
+
+		if($value != '0000-00-00')
+		{
+			echo" (le ".$value.")";
+		}
+		echo "<br>";
+}
+
+
+
+
+?>

@@ -1,0 +1,46 @@
+<div class='partenaire'>
+
+<?php
+	$query = 'SELECT * FROM volontaires WHERE id='.$id;
+	$result = mysql_query($query);
+	while($data = mysql_fetch_array($result))
+	{
+
+	echo"<h1>".$data['prenom']." ".strtoupper($data['nom'])."</h1>";
+	
+	echo"<border></border>";
+	echo"<h2>";
+	if($data['sexe'] == 'M')
+	{
+		echo"Homme";
+	}
+	if($data['sexe'] == 'F')
+	{
+		echo"Femme";
+	}
+	
+	echo " - ".$data['nationalite']." - n° ".$data['id']."</h2>";
+	echo"<border></border>";
+	echo"<h3>Mail : ".$data['mail']."</h3>";
+	echo"<h3>Date de naissance : ".$data['date_naissance']."</h3><br>";
+	}
+
+$query = 'SELECT * FROM volontaires_facultatif WHERE id_vol='.$id;
+	$result = mysql_query($query);
+	while($data = mysql_fetch_array($result))
+	{
+	
+	echo"<h3>Téléphone fixe : ".$data['fixe']."</h3>";
+	echo"<h3>Téléphone mobile : ".$data['mobile']."</h3><br>";
+	echo"<h3>Adresse postale : </h3>";
+	echo"<h3>".$data['adresse']."</h3><br>";
+	echo"<h2>Commentaires</h2>";
+	echo"<p>".$data['commentaires']."</p><br>";
+	echo"<a href='index.php?page=edit_volontaire&id=".$id."'>modifier</a> - ";
+	echo"<a style='cursor: pointer;' onclick=\"if (window.confirm('Etes-vous sûr(e) de vouloir supprimer ce volontaire ?')) 
+{location.href='index.php?page=delete_volontaire&id=".$id."';return true;} else {return false;}\">supprimer</a><br><br>";
+	echo"<a href='index.php?page=add_mission&id_vol=".$id."'>> déposer sa candidature ! <</a>";
+
+	}
+
+?>

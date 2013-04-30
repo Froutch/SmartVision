@@ -1,0 +1,27 @@
+<div class='welcome'>
+<h1>Bienvenue, <?php echo ucwords($_SESSION['login']) ?> !</h1>
+<border></border>
+<h2>Voici vos tâches à effectuer :</h2>
+<h3>Tâche 1</h3>
+<h3>Tâche 2</h3>
+<h3>Tâche 3</h3>
+<h3>Tâche 4</h3>
+<h3>Tâche 5</h3>
+<h2>A quoi sert la barre d'outils ?<h2>
+<h3>Partenaire +</h3>
+<p>Avant chaque nouvelle candidature, il faut s'assurer que le partenaire existe bien dans la base de données du site. Ce bouton vous permet d'en ajouter un facilement.</p>
+<h3>Candidature +</h3>
+<p>Vous pouvez ajouter chaque nouvelle candidature. L'application détecte automatiquement si un candidat a déjà effectué une mission auparavant.</p>
+<h3>Préparation</h3>
+<p>Toutes les candidatures qui n'ont pas encore été préparées au chantier.</p>
+<h3>7 jours avant</h3>
+<p>Toutes les missions qui ont été préparées, mais qui nécessitent un rappel 7 jours avant le début du chantier.</p>
+<h3>En cours</h3>
+<p>Toutes les missions en cours.</p>
+<h3>Après la mission</h3>
+<p>Toutes les missions qui viennent de se terminer. Elles restent sur cette page pendant un mois puis elles sont archivées.</p>
+<h3>Recherche</h3>
+<p>Vous pouvez chercher n'importe quelle mission, volontaire ou partenaire, et avec n'importe quel mode de tri pour accéder à leur fiche complète.</p>
+<h3>Options</h3>
+<p>Vous pouvez changer vos paramètres personnels : Mail, Mot de Passe etc ...</p>
+</div>

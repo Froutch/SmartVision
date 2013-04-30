@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+ 
+ <head>
+ 
+<!-- En-tête du document  -->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+ 
+  <!-- Balise meta  -->
+  <meta name="title" content="Gestion SVI" />
+  <meta name="description" content="Application de gestion des Chantiers Internationaux"/>
+
+  <!--  Relier une feuille CSS externe  -->
+<link rel='stylesheet' href='design/reset.css' type='text/css' />
+  <link rel='stylesheet' href='design/style.css' type='text/css' />
+  <link rel='stylesheet' href='design/autocomplete.css' type='text/css' />
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="design/datepicker.css">
+
+
+
+
+<link rel="stylesheet" href="design/jquery.ui.all.css">
+	<script src="js/jquery-1.9.0.js"></script>
+	<script src="js/ui/jquery.ui.core.js"></script>
+	<script src="js/ui/jquery.ui.widget.js"></script>
+	<script src="js/ui/jquery.ui.datepicker.js"></script>
+
+	<script>
+	$(function() {
+	
+		$( "#from" ).datepicker({
+			defaultDate: "+1w",
+			changeMonth: true,
+			numberOfMonths: 3,
+			dateFormat: 'yy-mm-dd',
+			onClose: function( selectedDate ) {
+				$( "#to" ).datepicker( "option", "minDate", selectedDate );
+			}
+		});
+		$( "#to" ).datepicker({
+			defaultDate: "+1w",
+			changeMonth: true,
+			numberOfMonths: 3,
+			dateFormat: 'yy-mm-dd',
+			onClose: function( selectedDate ) {
+				$( "#from" ).datepicker( "option", "maxDate", selectedDate );
+			}
+		});
+		
+	});
+	</script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+ 
+	//ACCORDION BUTTON ACTION	
+	$('div.accordionButton').click(function() {
+		$('div.accordionContent').slideUp('normal');	
+		$(this).next().slideDown('normal');
+	});
+ 
+	//HIDE THE DIVS ON PAGE LOAD	
+	$("div.accordionContent").hide();
+ 
+});
+</script>
+
+ 
+<script type="text/javascript" src="js/datepicker.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$('#popupDatepicker').datepick();
+		$('#inlineDatepicker').datepick({onSelect: showDate});
+	});
+
+	function showDate(date) {
+		alert('The date chosen is ' + date);
+	}
+</script>
+ 
+ </head>
+ 
+ 
+ <body>
+
+<?php
+
+if(!empty($_SESSION))
+{
+	
+?>
+<div class='toolbox'>
+	<a href='index.php?page=welcome'>Accueil</a><br>
+	<a href='index.php?page=add_partenaire'>Partenaire +</a><br>
+	<a href='index.php?page=verif_volontaire'>Candidature +</a><br>
+	<a href='index.php?page=preparation'>Préparation</a><br>
+	<a href='index.php?page=avant'>7 jours avant</a><br>
+	<a href='index.php?page=en_cours'>En cours</a><br>
+	<a href='index.php?page=apres'>Après chantier</a><br>
+	<a href='index.php?page=recherche'>Recherche</a><br>
+	<a href=''>Options</a><br>
+</div>
+<a href='index.php?page=login_admin&disconnect=1'><div class='disconnect'>déconnexion X</div></a>
+<?php
+
+}
+?>

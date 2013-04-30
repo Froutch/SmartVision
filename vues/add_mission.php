@@ -1,0 +1,69 @@
+<div class='add_partenaire'>
+	<h1>Ajouter un projet</h1>
+	<border></border>
+	<?php
+		$query = "SELECT * from volontaires WHERE id=".$_GET['id_vol'];
+		$result = mysql_query($query);
+	 	while($data = mysql_fetch_array($result))
+		{
+			echo"<h2>".$data['prenom']." ".strtoupper($data['nom'])." - ";
+	
+			if($data['sexe'] == 'M')
+			{
+				echo"Homme";
+			}
+			if($data['sexe'] == 'F')
+			{
+				echo"Femme";
+			}
+	
+			echo " - ".$data['nationalite']." - n° ".$data['id']."</h2>";	
+		}
+	?>
+	<border></border>
+	<h2>Champs obligatoires</h2>
+	<form action="" method="post">
+	<input type='hidden' name='id_vol' value="<?php echo $_GET['id_vol']; ?>"/>
+	<input type='hidden' name='id_admin' value="<?php echo $_SESSION['id_admin']; ?>"/>
+	Code du Projet :
+	<input type='text' name='code_mission' placeholder='Code du Projet' /><br>
+	Partenaire :
+	<select name="id_partenaire" style="width: 200px;">
+	<?php
+	$query = "SELECT id, abreviation from partenaires ORDER BY abreviation";
+	$result = mysql_query($query);
+ 	while($data = mysql_fetch_array($result))
+	{
+		echo "<option value=\"".$data['id']."\">".$data['abreviation']."</option>";
+	}
+
+	?>
+
+	</select><br>
+	Pays :
+	<select name="pays" style="width: 200px;">
+	<?php
+	$query = "SELECT langFR from countries ORDER BY langFR;";
+	$result = mysql_query($query);
+ 	while($data = mysql_fetch_array($result))
+	{
+		echo "<option>".$data['langFR']."</option>";
+	}
+
+	?>
+	</select>
+	<br>
+	<label for="from">Du</label>
+	<input type="text" id="from" name="from" required>
+	<label for="to">Au</label>
+	<input type="text" id="to" name="to" required><br>
+
+
+	
+	Court Terme : <INPUT type=radio name="long_terme" value="0" checked>
+	<br>Long Terme : <INPUT type=radio name="long_terme" value="1"><br>
+	
+
+	
+	<input type="submit" value="ajouter"/>
+</div>

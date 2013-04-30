@@ -1,0 +1,29 @@
+<?php
+
+	echo $_GET['login'];
+	echo $_GET['mdp'];
+
+	$login = $_GET['login'];
+	$mdp = $_GET['mdp'];
+	
+	if(isset($_GET['login']) && isset($_GET['mdp']))
+	{
+		include('modeles/check_connect.php');
+
+		$login_error = check_connect($login, $mdp);
+
+		if($login_error == 0)
+		{
+			echo "login_error = ".$login_error;
+			include('controleurs/welcome.php');
+		}
+		else
+		{
+			include('controleurs/login_admin.php');
+		}
+	}
+	else
+	{
+		include('controleurs/login_admin.php');
+	}
+?>

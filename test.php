@@ -1,0 +1,12 @@
+<?php
+session_start();
+?>
+<html>
+<body>
+<pre>
+<?php
+print_r($_SESSION);
+?>
+</pre>
+</body>
+</html>

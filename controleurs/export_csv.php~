@@ -1,0 +1,12 @@
+<?php
+
+$outputCsv = $_POST['outputCsv'];
+
+
+echo $outputCsv;
+exit();
+
+
+
+
+?>

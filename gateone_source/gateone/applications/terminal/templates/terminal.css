@@ -1,0 +1,44 @@
+/* Generic Terminal application CSS that will be the same across all themes */
+#{{container}} .pastearea {
+    font-family: monospace;
+    display: block;
+    color: transparent;
+    background: transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 1.1em;
+    padding: 0;
+    right: 3em;
+    z-index: 500;
+    margin: 0;
+    opacity: 0;
+    width: calc(100% - 3.5em);
+    height: calc(100% - 1.3em);
+    width: -webkit-calc(100% - 3.5em);
+    height: -webkit-calc(100% - 1.3em);
+}
+#{{container}} .pastearea:hover {
+    cursor: text;
+}
+#{{container}} .terminal span.screen {
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    display: block;
+/*     width: calc(100% - 2em); */
+}
+#{{container}} .terminal span.scrollback {
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    display: block;
+/*     width: calc(100% - 3.5em); */
+}
+#{{container}} .terminal span.termline {
+    width: 100%;
+}
+/* This is to work around a Chrome/Windows bug where pasting gets disabled if you use JS to set display: none */
+#{{container}} .go_none { /* No prefix on this one because of issues with that in the JS code */
+/*     display: none; */
+    height: 1px;
+    width: 1px;
+}

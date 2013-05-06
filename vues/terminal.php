@@ -12,21 +12,20 @@
 */
 ?>
 
-<div class="ui-body ui-body-e"style="width: 400px; margin: auto;">
-		<p><code>
+<div class="ui-body ui-body-e"style="width: 80%; min-height: 300px; margin: auto;">
+		<code>
 
 <?php
-	$lol = system($_POST['req']);
+	$result = system($_POST['req']);
 
 ?>
 	
 		</code>
-		</p></div>
+		</div>
 <center>
 <form action="index.php?page=terminal" method="POST">
 <div data-role="fieldcontain">
-	<label for="name"><strong>Commande : </strong></label>
-<input type="text" name="req" id="name" data-role="none" value="" required>
+<input type="text" name="req" id="name" data-role="none" placeHolder="commande"  style="width: 80%" value="" required>
 </div>
 <input type="submit" data-inline="true" value="Envoyer" data-theme="b"/>
 </form>

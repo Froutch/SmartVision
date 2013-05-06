@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/!svn/ver/4997/anyterm/tags/releases/1.1/1.1.29
+END
+LICENSE
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/!svn/ver/4996/anyterm/tags/releases/1.1/1.1.29/LICENSE
+END
+anytermd.1
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/!svn/ver/4996/anyterm/tags/releases/1.1/1.1.29/anytermd.1
+END
+libpbe.mk
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/!svn/ver/4996/anyterm/tags/releases/1.1/1.1.29/libpbe.mk
+END
+CHANGELOG
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/!svn/ver/4996/anyterm/tags/releases/1.1/1.1.29/CHANGELOG
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/!svn/ver/4996/anyterm/tags/releases/1.1/1.1.29/Makefile
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/!svn/ver/4996/anyterm/tags/releases/1.1/1.1.29/README
+END
+common.mk
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/!svn/ver/4996/anyterm/tags/releases/1.1/1.1.29/common.mk
+END

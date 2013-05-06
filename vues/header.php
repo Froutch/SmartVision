@@ -8,7 +8,7 @@
 	<link rel="stylesheet"  href="design/jquery.mobile.custom.css" />
 	<link rel="stylesheet" href="design/jquery.mobile.custom.structure.css" />
 	<link rel="stylesheet" href="design/jquery.mobile.custom.theme.css" />
-	<script src="//code.jquery.com/jquery-1.7.1.min.js"></script>
+	<script src="js/jquery-1.7.1.min.js"></script>
 
 	<script src="js/jquery.mobile.custom.js"></script>
 	

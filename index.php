@@ -1,6 +1,5 @@
 <?php
   session_start();
-  $webmaster='pierre@servicevolontaire.org'; //email du webmaster pour recevoir messages d'erreurs
   //echo ("<!--mysql_connect.php debut-->\n");
 	include('modeles/mysql_connect.php');
   //echo ("<!--mysql_connect.php fin-->\n");

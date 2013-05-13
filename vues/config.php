@@ -1,6 +1,5 @@
 
 
-<h1><?php echo $host ?></h1>
 <?php
 if ($host == 'localhost')
 {

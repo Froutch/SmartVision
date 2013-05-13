@@ -1,7 +1,4 @@
-
-<center>
-<h1>Terminal</h1>
-</center>
+<br>
 <?php
 
 /*	$result = mysql_query('SELECT * FROM terminal');
@@ -16,14 +13,19 @@
 		<code>
 
 <?php
-
+if(!empty($_POST['req']))
+{
 	ob_start();
 	passthru($_POST['req']);
 	$var = ob_get_contents();
 	ob_end_clean(); //Use this instead of ob_flush()
 	$var = nl2br($var);
 	echo $var;
-
+}
+else
+{
+	echo "Bienvenue sur le terminal de votre machine ! Ici s'afficheront les résultats de vos requêtes.";
+}
 ?>
 	
 		</code>

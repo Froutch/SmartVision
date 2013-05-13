@@ -1,0 +1,8 @@
+Ports intéressants :
+
+Port 22 : SSH
+Port 25 : SMTP (mail)
+Port 80 : HTTP (Web)
+Port 110 : POP3 (mail)
+Port 143 : IMAP (mail)
+Port de Toulon (porte-avion)

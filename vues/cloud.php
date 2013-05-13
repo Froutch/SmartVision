@@ -1,7 +1,4 @@
 
-<center>
-<h1>Cloud</h1>
-</center>
 
 
 <div data-role="content">
@@ -11,13 +8,27 @@
 <?php
 
 	ob_start();
-	passthru("ls");
+	passthru("ls cloud");
 	$var = ob_get_contents();
 	ob_end_clean(); //Use this instead of ob_flush()
-	$line = explode("<br />", $var);
+	$line = explode("\n", $var);
 	foreach($line as $value)
 	{
-		echo'<li><a href="bmw.html">'.$value.'</a></li>';
+		echo'<li><a href="';
+		if (preg_match("/.pdf/i", $value)) {
+		$link = "https://docs.google.com/viewer?url=";
+		$link .= $_SERVER['HTTP_HOST'];
+		$link .= $_SERVER['PHP_SELF'];
+
+		$link = str_replace("index.php", "", $link);
+		$link = str_replace(":4060", ":3080", $link);
+		$link .= "cloud/".$value;
+		echo $link;
+} else {
+    echo "";
+}
+		echo'">'.$value;
+		echo'</a></li>';
 	}
 ?>
 </ul>	

@@ -27,8 +27,10 @@ foreach $j (@arp_scan_line)
 	$arp_scan_const[$i] = $arp_scan_line2[2];
 	print $arp_scan_ip[$i];
 	print "\t";
-	print $arp_scan_line2[$i];
+	print $arp_scan_mac[$i];
 	print "\t";
-	print $arp_scan_line2[$i];
+	print $arp_scan_const[$i];
+	print "\n";
+	#print `./ports.py $arp_scan_ip[$i]`;
 	$i++;
 }

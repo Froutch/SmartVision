@@ -1,0 +1,251 @@
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/!svn/ver/4996/anyterm/tags/releases/1.1/1.1.29/src
+END
+static_content.hh
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/!svn/ver/4996/anyterm/tags/releases/1.1/1.1.29/src/static_content.hh
+END
+Session.hh
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/!svn/ver/4996/anyterm/tags/releases/1.1/1.1.29/src/Session.hh
+END
+auto_CgiParams.cc
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/!svn/ver/4996/anyterm/tags/releases/1.1/1.1.29/src/auto_CgiParams.cc
+END
+SessionId.cc
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/!svn/ver/4996/anyterm/tags/releases/1.1/1.1.29/src/SessionId.cc
+END
+Attributes.hh
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/!svn/ver/4996/anyterm/tags/releases/1.1/1.1.29/src/Attributes.hh
+END
+SubProcess.hh
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/!svn/ver/4996/anyterm/tags/releases/1.1/1.1.29/src/SubProcess.hh
+END
+AnytermDaemon.cc
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/!svn/ver/4996/anyterm/tags/releases/1.1/1.1.29/src/AnytermDaemon.cc
+END
+html.cc
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/!svn/ver/4996/anyterm/tags/releases/1.1/1.1.29/src/html.cc
+END
+Activity.hh
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/!svn/ver/4996/anyterm/tags/releases/1.1/1.1.29/src/Activity.hh
+END
+diff.cc
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/!svn/ver/4996/anyterm/tags/releases/1.1/1.1.29/src/diff.cc
+END
+editscript.cc
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/!svn/ver/4996/anyterm/tags/releases/1.1/1.1.29/src/editscript.cc
+END
+Terminal.cc
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/!svn/ver/4996/anyterm/tags/releases/1.1/1.1.29/src/Terminal.cc
+END
+expand_command.cc
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/!svn/ver/4996/anyterm/tags/releases/1.1/1.1.29/src/expand_command.cc
+END
+NullAuthenticator.hh
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/!svn/ver/4996/anyterm/tags/releases/1.1/1.1.29/src/NullAuthenticator.hh
+END
+CgiParams.hh
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/!svn/ver/4996/anyterm/tags/releases/1.1/1.1.29/src/CgiParams.hh
+END
+Session.cc
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/!svn/ver/4996/anyterm/tags/releases/1.1/1.1.29/src/Session.cc
+END
+main.cc
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/!svn/ver/4996/anyterm/tags/releases/1.1/1.1.29/src/main.cc
+END
+UrlEncodedCgiParams.hh
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/!svn/ver/4996/anyterm/tags/releases/1.1/1.1.29/src/UrlEncodedCgiParams.hh
+END
+SubProcess.cc
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/!svn/ver/4996/anyterm/tags/releases/1.1/1.1.29/src/SubProcess.cc
+END
+Anyterm.hh
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/!svn/ver/4996/anyterm/tags/releases/1.1/1.1.29/src/Anyterm.hh
+END
+Cell.hh
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/!svn/ver/4996/anyterm/tags/releases/1.1/1.1.29/src/Cell.hh
+END
+Screen.hh
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/!svn/ver/4996/anyterm/tags/releases/1.1/1.1.29/src/Screen.hh
+END
+Activity.cc
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/!svn/ver/4996/anyterm/tags/releases/1.1/1.1.29/src/Activity.cc
+END
+slugmake.sh
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/!svn/ver/4996/anyterm/tags/releases/1.1/1.1.29/src/slugmake.sh
+END
+unicode.hh
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/!svn/ver/4996/anyterm/tags/releases/1.1/1.1.29/src/unicode.hh
+END
+mk_blob.c
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/!svn/ver/4996/anyterm/tags/releases/1.1/1.1.29/src/mk_blob.c
+END
+Error.hh
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/!svn/ver/4996/anyterm/tags/releases/1.1/1.1.29/src/Error.hh
+END
+auto_CgiParams.hh
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/!svn/ver/4996/anyterm/tags/releases/1.1/1.1.29/src/auto_CgiParams.hh
+END
+SessionId.hh
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/!svn/ver/4996/anyterm/tags/releases/1.1/1.1.29/src/SessionId.hh
+END
+UrlEncodedCgiParams.cc
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/!svn/ver/4996/anyterm/tags/releases/1.1/1.1.29/src/UrlEncodedCgiParams.cc
+END
+SerialPortActivity.hh
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/!svn/ver/4996/anyterm/tags/releases/1.1/1.1.29/src/SerialPortActivity.hh
+END
+AnytermDaemon.hh
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/!svn/ver/4996/anyterm/tags/releases/1.1/1.1.29/src/AnytermDaemon.hh
+END
+html.hh
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/!svn/ver/4996/anyterm/tags/releases/1.1/1.1.29/src/html.hh
+END
+config.hh
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/!svn/ver/4996/anyterm/tags/releases/1.1/1.1.29/src/config.hh
+END
+TrivialAuthenticator.hh
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/!svn/ver/4996/anyterm/tags/releases/1.1/1.1.29/src/TrivialAuthenticator.hh
+END
+Anyterm.cc
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/!svn/ver/4996/anyterm/tags/releases/1.1/1.1.29/src/Anyterm.cc
+END
+diff.hh
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/!svn/ver/4996/anyterm/tags/releases/1.1/1.1.29/src/diff.hh
+END
+editscript.hh
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/!svn/ver/4996/anyterm/tags/releases/1.1/1.1.29/src/editscript.hh
+END
+SerialPort.cc
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/!svn/ver/4996/anyterm/tags/releases/1.1/1.1.29/src/SerialPort.cc
+END
+Terminal.hh
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/!svn/ver/4996/anyterm/tags/releases/1.1/1.1.29/src/Terminal.hh
+END
+expand_command.hh
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/!svn/ver/4996/anyterm/tags/releases/1.1/1.1.29/src/expand_command.hh
+END

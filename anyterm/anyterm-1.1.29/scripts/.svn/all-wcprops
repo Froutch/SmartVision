@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/!svn/ver/4996/anyterm/tags/releases/1.1/1.1.29/scripts
+END
+mk_static_content.sh
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/!svn/ver/4996/anyterm/tags/releases/1.1/1.1.29/scripts/mk_static_content.sh
+END
+mimetype.sh
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/!svn/ver/4996/anyterm/tags/releases/1.1/1.1.29/scripts/mimetype.sh
+END

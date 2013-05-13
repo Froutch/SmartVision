@@ -28,7 +28,7 @@ if(!empty($_SESSION['id_admin']))
 </div>
 <div data-role="navbar">
 	<ul>
-		<li><a href="index.php?page=" class="ui-btn-active ui-state-persist">One</a></li>
+		<li><a href="index.php?page=config&host=localhost" class="ui-btn-active ui-state-persist">Ma machine</a></li>
 		<li><a href="b.html">Two</a></li>
 		<li><a href="b.html">Two</a></li>
 		<li><a href="b.html">Two</a></li>

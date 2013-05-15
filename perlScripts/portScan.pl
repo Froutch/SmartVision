@@ -14,7 +14,7 @@ my $i = 0;
 my $j;
 my @tmp;
 
-my $timeout = 0.2;
+my $timeout = 0.05;
 
 # use the format as per below to add new ports
 # perl is not going to be as fast a nmap, this is

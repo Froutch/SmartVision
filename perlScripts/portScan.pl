@@ -16,11 +16,6 @@ my @tmp;
 
 my $timeout = 0.05;
 
-# use the format as per below to add new ports
-# perl is not going to be as fast a nmap, this is
-# a specialized tool to check for RDP and SSH
-# and print it out to a spreadsheet, use nmap!
-
 my $proto = 'tcp';
 
 my %port_hash = (

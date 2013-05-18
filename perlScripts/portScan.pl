@@ -13,6 +13,9 @@ my $arp_scan = `arp-scan -l`;
 my $i = 0;
 my $j;
 my @tmp;
+my $os_result;
+my @os_tmp;
+
 
 #test git
 my $timeout = 0.05;
@@ -71,6 +74,15 @@ foreach $j (@arp_scan_ip)
 			print "$port,";
 		}
     }
+
+
+$os_result = `xprobe2 -v $host -t 1`;
+
+@os_tmp = split('Running OS: "', $os_result);
+
+@os_tmp = split('"', $os_tmp[1]);
+
+print "|$os_tmp[0]";
 
     # add a new line for formatting
     print "\n";

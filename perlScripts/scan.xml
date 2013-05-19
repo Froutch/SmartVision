@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ISO-8859-1"?> 
+<scan>
+	<machine>
+		<ip>10.8.97.1</ip>
+		<const>michmich INC.</const>
+		<ports>22,55,80,</ports>
+		<os>michmich OS</os>
+	</machine>
+	<machine>
+		<ip>10.8.97.2</ip>
+		<const>michmich INC.2</const>
+		<ports>22,55,</ports>
+		<os>michmich OS2</os>
+	</machine>
+</scan>

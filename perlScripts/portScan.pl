@@ -15,7 +15,7 @@ my $j;
 my @tmp;
 my $os_result;
 my @os_tmp;
-
+my $xml;
 
 #test git
 my $timeout = 0.05;
@@ -48,10 +48,24 @@ foreach $j (@arp_scan_line)
 	$arp_scan_const[$i] = $arp_scan_line2[2];
 	$i++;
 }
+
+open (FIC, ">", "../scan.xml");
+close (FIC);
+
+open (FILE_IN, ">", "../scan.xml");
+
+
+print FILE_IN "<scan>\n";
+
+
+
+
 $i = 0;
 
 foreach $j (@arp_scan_ip)
 {
+
+	print FILE_IN "\t<machine>\n";
 	my $host = $j;
 
     # strip off the new line character
@@ -61,7 +75,9 @@ foreach $j (@arp_scan_ip)
     my $host_hr = check_ports($host,$timeout,\%port_hash);
 
     # print whatever host this
-    print "$host|$arp_scan_const[$i]|";
+	print FILE_IN "\t\t<ip>$host</ip>\n";
+	print FILE_IN "\t\t<const>$arp_scan_const[$i]</const>\n";
+	print FILE_IN "\t\t<ports>";
 
     # loop over each key in the hash that matches $proto (tcp), so 22 and 3389
     for my $port (keys %{$host_hr->{$proto}}) {
@@ -71,10 +87,11 @@ foreach $j (@arp_scan_ip)
 
                 # if it's "yes", then print it out
 		if ($yesno eq 'yes') {
-			print "$port,";
+			print FILE_IN "$port, ";
 		}
     }
 
+print FILE_IN "</ports>\n";
 
 $os_result = `xprobe2 -v $host -t 1`;
 
@@ -82,9 +99,20 @@ $os_result = `xprobe2 -v $host -t 1`;
 
 @os_tmp = split('"', $os_tmp[1]);
 
-print "|$os_tmp[0]";
+print FILE_IN "\t\t<os>";
+if (defined $os_tmp[0] && length $os_tmp[0] > 0)
+{ 
+	print FILE_IN "$os_tmp[0]";
+}
+else
+{
+	print FILE_IN "Inconnu";
+}
 
-    # add a new line for formatting
-    print "\n";
+	print FILE_IN "</os>\n";
+	print FILE_IN "\t</machine>\n";
 	$i++;
 }
+
+print FILE_IN "</scan>";
+close(FILE_IN);

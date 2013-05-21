@@ -17,14 +17,9 @@
 	<form method="post" action="bind_config.php">
 		<textarea name="precisions" id="precisions" cols="70" rows="30">
 			<?php echo system("cat /etc/bind/named.conf.local"); ?>
-		</textarea>
+	</textarea>
 	</form>
 	<br><hr><br>
-	<h3>/etc/bind/resolv.conf</h3>
-	<form method="post" action="bind_config.php">
-		<textarea name="precisions" id="precisions" cols="40" rows="4">
-			<?php echo system("ls /etc/bind/"); ?>
-		</textarea>
 		
 		<?php
 		system("ls /etc/bind > ls_etc_bind.txt");

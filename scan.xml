@@ -1,8 +1,74 @@
 <scan>
 	<machine>
+		<ip>10.8.96.219</ip>
+		<const>(Unknown)</const>
+		<ports></ports>
+		<os>Inconnu</os>
+	</machine>
+	<machine>
 		<ip>10.8.97.1</ip>
 		<const>Compaq Computer Corporation</const>
+		<ports>22, 25, 53, 80, </ports>
+		<os>Linux Kernel 2.4.22</os>
+	</machine>
+	<machine>
+		<ip>10.8.96.240</ip>
+		<const>(Unknown)</const>
 		<ports></ports>
+		<os>Inconnu</os>
+	</machine>
+	<machine>
+		<ip>10.8.96.226</ip>
+		<const>(Unknown)</const>
+		<ports>80, </ports>
+		<os>Microsoft Windows XP SP2</os>
+	</machine>
+	<machine>
+		<ip>10.8.97.68</ip>
+		<const>(Unknown)</const>
+		<ports></ports>
+		<os>HP JetDirect ROM A.03.17 EEPROM A.04.09</os>
+	</machine>
+	<machine>
+		<ip>10.8.97.94</ip>
+		<const>(Unknown)</const>
+		<ports></ports>
+		<os>HP JetDirect ROM A.03.17 EEPROM A.04.09</os>
+	</machine>
+	<machine>
+		<ip>10.8.99.238</ip>
+		<const>(Unknown)</const>
+		<ports>80, </ports>
+		<os>Microsoft Windows XP SP2</os>
+	</machine>
+	<machine>
+		<ip>10.8.101.14</ip>
+		<const>(Unknown)</const>
+		<ports></ports>
+		<os>Inconnu</os>
+	</machine>
+	<machine>
+		<ip>10.8.101.148</ip>
+		<const>(Unknown)</const>
+		<ports>80, </ports>
+		<os>Linux Kernel 2.4.22</os>
+	</machine>
+	<machine>
+		<ip>10.8.100.21</ip>
+		<const>(Unknown)</const>
+		<ports></ports>
+		<os>Inconnu</os>
+	</machine>
+	<machine>
+		<ip>10.8.104.30</ip>
+		<const>(Unknown)</const>
+		<ports></ports>
+		<os>Inconnu</os>
+	</machine>
+	<machine>
+		<ip>10.8.104.83</ip>
+		<const>(Unknown)</const>
+		<ports>22, 80, </ports>
 		<os>Linux Kernel 2.4.22</os>
 	</machine>
 	<machine>
@@ -10,6 +76,12 @@
 		<const>Compaq Computer Corporation</const>
 		<ports>22, 25, 80, 143, </ports>
 		<os>Linux Kernel 2.4.22</os>
+	</machine>
+	<machine>
+		<ip>10.8.105.26</ip>
+		<const>(Unknown)</const>
+		<ports>80, </ports>
+		<os>HP JetDirect ROM A.03.17 EEPROM A.04.09</os>
 	</machine>
 	<machine>
 		<ip>10.8.106.7</ip>
@@ -30,6 +102,24 @@
 		<os>Microsoft Windows XP SP2</os>
 	</machine>
 	<machine>
+		<ip>10.8.107.22</ip>
+		<const>(Unknown)</const>
+		<ports>80, </ports>
+		<os>Microsoft Windows XP SP2</os>
+	</machine>
+	<machine>
+		<ip>10.8.101.174</ip>
+		<const>(Unknown)</const>
+		<ports></ports>
+		<os>Inconnu</os>
+	</machine>
+	<machine>
+		<ip>10.8.108.56</ip>
+		<const>(Unknown)</const>
+		<ports>80, </ports>
+		<os>Inconnu</os>
+	</machine>
+	<machine>
 		<ip>10.8.108.108</ip>
 		<const>VMware, Inc.</const>
 		<ports>53, </ports>
@@ -42,10 +132,46 @@
 		<os>Inconnu</os>
 	</machine>
 	<machine>
+		<ip>10.8.108.123</ip>
+		<const>(Unknown)</const>
+		<ports>80, </ports>
+		<os>Inconnu</os>
+	</machine>
+	<machine>
+		<ip>10.8.110.47</ip>
+		<const>Wistron Neweb Corp.</const>
+		<ports></ports>
+		<os>Microsoft Windows XP SP2</os>
+	</machine>
+	<machine>
+		<ip>10.8.110.96</ip>
+		<const>(Unknown)</const>
+		<ports></ports>
+		<os>Microsoft Windows XP SP2</os>
+	</machine>
+	<machine>
 		<ip>10.8.110.110</ip>
 		<const>PLANET Technology Corporation</const>
 		<ports>22, 25, 80, 143, </ports>
 		<os>Linux Kernel 2.4.22</os>
+	</machine>
+	<machine>
+		<ip>10.8.110.121</ip>
+		<const>(Unknown)</const>
+		<ports></ports>
+		<os>Apple Mac OS X 10.4.1</os>
+	</machine>
+	<machine>
+		<ip>10.8.110.41</ip>
+		<const>(Unknown)</const>
+		<ports></ports>
+		<os>Inconnu</os>
+	</machine>
+	<machine>
+		<ip>10.8.110.236</ip>
+		<const>(Unknown)</const>
+		<ports>80, </ports>
+		<os>Inconnu</os>
 	</machine>
 	<machine>
 		<ip>10.8.111.112</ip>
@@ -60,10 +186,10 @@
 		<os>FreeBSD 5.2</os>
 	</machine>
 	<machine>
-		<ip>10.8.111.246</ip>
+		<ip>10.8.107.3</ip>
 		<const>(Unknown)</const>
-		<ports>22, 80, </ports>
-		<os>Linux Kernel 2.4.22</os>
+		<ports>80, </ports>
+		<os>Linux Kernel 2.4.19</os>
 	</machine>
 	<machine>
 		<ip>10.8.111.244</ip>
@@ -78,9 +204,63 @@
 		<os>Linux Kernel 2.4.22</os>
 	</machine>
 	<machine>
+		<ip>10.8.111.246</ip>
+		<const>(Unknown)</const>
+		<ports>22, 80, </ports>
+		<os>Linux Kernel 2.4.22</os>
+	</machine>
+	<machine>
+		<ip>10.8.111.251</ip>
+		<const>Compaq Computer Corporation</const>
+		<ports>22, 25, 53, 80, 143, </ports>
+		<os>Linux Kernel 2.4.22</os>
+	</machine>
+	<machine>
 		<ip>10.8.111.250</ip>
 		<const>Netgear, Inc.</const>
 		<ports>80, </ports>
 		<os>AIX 5.1</os>
+	</machine>
+	<machine>
+		<ip>10.8.97.174</ip>
+		<const>(Unknown)</const>
+		<ports>80, </ports>
+		<os>Microsoft Windows XP SP2</os>
+	</machine>
+	<machine>
+		<ip>10.8.99.190</ip>
+		<const>(Unknown)</const>
+		<ports>80, </ports>
+		<os>Inconnu</os>
+	</machine>
+	<machine>
+		<ip>10.8.100.83</ip>
+		<const>(Unknown)</const>
+		<ports></ports>
+		<os>Inconnu</os>
+	</machine>
+	<machine>
+		<ip>10.8.102.53</ip>
+		<const>(Unknown)</const>
+		<ports></ports>
+		<os>Inconnu</os>
+	</machine>
+	<machine>
+		<ip>10.8.102.148</ip>
+		<const>(Unknown)</const>
+		<ports></ports>
+		<os>HP JetDirect ROM A.03.17 EEPROM A.04.09</os>
+	</machine>
+	<machine>
+		<ip>10.8.102.226</ip>
+		<const>(Unknown)</const>
+		<ports></ports>
+		<os>Inconnu</os>
+	</machine>
+	<machine>
+		<ip>10.8.105.248</ip>
+		<const>(Unknown)</const>
+		<ports></ports>
+		<os>Inconnu</os>
 	</machine>
 </scan>

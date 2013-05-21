@@ -27,7 +27,7 @@
 		</textarea>
 		
 		<?php
-		system("ls /etc/bind >> ls_etc_bind.txt");
+		system("ls /etc/bind > ls_etc_bind.txt");
 		$handle = @fopen("/var/www/alex/vues/texte.txt", "r");
 			if ($handle) {
 	echo "<select>";

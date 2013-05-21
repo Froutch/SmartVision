@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN""http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="fr" />
+		<meta name="author" content="Marc Glisse" />
+		<title>
+			Squelette
+		</title>
+	</head>
+	<body>
+	<?php  ?>
+	<h1>Page de configuration de Bind</h1>
+	<br><br>
+	<h3>/etc/bind/named.conf.local</h3>
+	<form method="post" action="bind_config.php">
+		<textarea name="precisions" id="precisions" cols="70" rows="30">
+			<?php echo system("cat /etc/bind/named.conf.local"); ?>
+		</textarea>
+	</form>
+	<br><hr><br>
+	<h3>/etc/bind/resolv.conf</h3>
+	<form method="post" action="bind_config.php">
+		<textarea name="precisions" id="precisions" cols="40" rows="4">
+			<?php echo $named_conf; ?>
+		</textarea>
+	</form>
+	</body>
+
+</html>
+

@@ -25,8 +25,25 @@
 		<textarea name="precisions" id="precisions" cols="40" rows="4">
 			<?php echo system("ls /etc/bind/"); ?>
 		</textarea>
+		
+		<?php
+		system("ls /etc/bind >> texte.txt");
+		$handle = @fopen("/var/www/alex/vues/texte.txt", "r");
+			if ($handle) {
+	echo "<select>";
+    while (($buffer = fgets($handle, 4096)) !== false) {
+        echo "<option>".$buffer."</option>";
+    }
+	echo"</select>";
+    if (!feof($handle)) {
+        echo "Erreur: fgets() a échoué\n";
+    }
+    fclose($handle);
+}
+?>
 	</form>
 	</body>
+	
 
 </html>
 

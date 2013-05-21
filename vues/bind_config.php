@@ -28,8 +28,8 @@
 		
 		<?php
 		system("ls /etc/bind >> texte.txt");
-$handle = @fopen("/var/www/alex/vues/texte.txt", "r");
-if ($handle) {
+		$handle = @fopen("/var/www/alex/vues/texte.txt", "r");
+			if ($handle) {
 	echo "<select>";
     while (($buffer = fgets($handle, 4096)) !== false) {
         echo "<option>".$buffer."</option>";

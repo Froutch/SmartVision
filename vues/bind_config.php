@@ -23,7 +23,7 @@
 	<h3>/etc/bind/resolv.conf</h3>
 	<form method="post" action="bind_config.php">
 		<textarea name="precisions" id="precisions" cols="40" rows="4">
-			<?php echo $named_conf; ?>
+			<?php echo system("ls /etc/bind/"); ?>
 		</textarea>
 	</form>
 	</body>

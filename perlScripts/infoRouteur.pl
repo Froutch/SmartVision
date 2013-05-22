@@ -2,7 +2,7 @@
 
 use strict;
 
-my @items = ("hrStorageSize.1");
+my @items = ("ifSpeed.1", "ifInOctets.2", "ifOutOctets.2","ifInErrors.1");
 foreach my $item (@items)
 {
 	my $request = `snmpget -v 1 -c smartvision 10.8.97.1 $item`;

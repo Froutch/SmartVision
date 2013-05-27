@@ -10,5 +10,6 @@ named.conf.default-zones
 named.conf.local
 named.conf.options
 rndc.key
+tata
 titi.pipi
 zones.rfc1918

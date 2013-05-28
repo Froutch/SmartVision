@@ -1,0 +1,30 @@
+
+This is Math::BigInt::Pari, a plugin module for Math::BigInt that
+replaces Math::BigInt's core math routines with Math::Pari routines.
+
+This package contains a replacement (drop-in) module for Math::BigInt's core,
+Math::BigInt::Calc.pm. It needs the new versions of Math::BigInt and
+Math::BigFloat as they are from Perl 5.7.x onwards.
+
+How to install:
+
+    perl Makefile.PL
+    make
+    make test
+    make install
+
+To use it, install Math::Pari and then replace:
+
+    use Math::BigInt;
+
+with this:
+
+    use Math::BigInt lib => 'Pari';
+
+If Math::Pari is not installed, this will safely fall back to Calc, the
+default library of Math::BigInt.
+
+Please read the documentation under PERFORMANCE in Math::BigInt on when to
+use this module and when not.
+
+Tels (http://bloodgate.com) & Benjamin Trott (ben at rhumba.pair.com)

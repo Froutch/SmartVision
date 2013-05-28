@@ -1,0 +1,64 @@
+!t_CLOSURE!tt!5!
+!closure!rm!5!
+!t_LIST!tt!6!
+!list!rm!6!
+!gunclone_deep!tt!6!
+!gunclone!tt!6!
+!list_nmax!tt!6!
+!list_data!tt!6!
+!listcopy!tt!7!
+!mklistcopy!tt!7!
+!PARI_SIGINT_block!tt!7!
+!PARI_SIGINT_pending!tt!7!
+!bb_group!tt!7!
+!gen_Shanks_log!tt!8!
+!gen_Pollard_log!tt!8!
+!gen_plog!tt!8!
+!gen_Shanks_sqrtn!tt!8!
+!gen_PH_log!tt!8!
+!gen_eltorder!tt!8!
+!print0!tt!8!
+!\EFF {}_RAW!tt!8!
+!\EFF {}_PRETTYMAT!tt!8!
+!\EFF {}_TEX!tt!8!
+!out_print0!tt!8!
+!print0!tt!8!
+!print!tt!8!
+!print1!tt!8!
+!pari_print\EFF {}!tt!8!
+!output!tt!8!
+!printtex!tt!8!
+!GENtoTeXstr!tt!9!
+!pari_print\EFF {}!tt!9!
+!write0!tt!9!
+!write1!tt!9!
+!writetex!tt!9!
+!GENtoTeXstr!tt!9!
+!print\EFF {}0!tt!9!
+!pari_print\EFF {}!tt!9!
+!Strprint\EFF {}!tt!9!
+!pari_sprint\EFF {}!tt!9!
+!pari_in\EFF {}ile!tt!9!
+!switchin!tt!9!
+!gp_read_\EFF {}ile!tt!9!
+!break0!tt!9!
+!next0!tt!9!
+!return0!tt!9!
+!error0!tt!9!
+!warning0!tt!9!
+!apply0!tt!9!
+!genapply!tt!9!
+!select0!tt!9!
+!genselect!tt!9!
+!localvars_read_str!tt!9!
+!geval_gp!tt!9!
+!localvars_\EFF {}ind!tt!10!
+!os_getenv!tt!10!
+!getenv!tt!10!
+!os_signal!tt!10!
+!sigaction!tt!10!
+!SA_NODEFER!tt!10!
+!signal!tt!10!
+!SIG_IGN!tt!10!
+!sigaction!tt!10!
+The End

@@ -1,0 +1,62 @@
+# This file was created by Configure. All changes made will be lost
+# next time Configure is run.
+#
+SHELL = /bin/sh
+RM = /bin/rm -f
+
+dft target::
+	@echo "Possible targets are:"
+	@echo "	gp			 Compilation"
+	@echo "	bench, test-compat       Compilation and test"
+	@echo "	dobench                	 Test only"
+	@echo "	doc			 Documentation"
+	@echo "	install			 Installation"
+	@echo "	clean, cleantest         Cleaning up"
+	@echo "For pari maintainers..."
+	@echo "	all			Compile gp-[sta|dyn] and lib-[sta|dyn]"
+	@echo "	gp.dbg	                Compile gp binary suitable for debugging"
+	@echo "	distrib			Create a new distribution"
+	@echo "	ctags			Generate VI/VIM tags file in ./src"
+	@echo "	etags			Generate Emacs  tags file in ./src"
+
+gp all bench test-kernel test-compat test-graphic install cleanobj cleantest install-bin install-doc install-lib-sta install-bin-sta dobench::
+	cd Olinux-i686; $(MAKE) $@
+
+gp.dbg::
+	cd Olinux-i686.dbg; $(MAKE) gp
+
+doc docps docpdf gpman cleandoc::
+	cd doc; $(MAKE) $@
+
+clean:: cleandoc cleanobj
+
+setdir::
+	@dir=pari-2.1.7; if test -d $$dir; then \
+	   echo "Remove $$dir before building a new release"; exit 1;\
+	fi;\
+	mkdir $$dir; mv pari-2.1.7.tar $$dir; \
+	cd $$dir; tar xf pari-2.1.7.tar; $(RM) pari-2.1.7.tar; cd ..; \
+	tar cf pari-2.1.7.tar $$dir; \
+	$(RM) -r $$dir
+
+tar:
+	$(RM) pari-2.1.7.tgz
+	/bin/tar cf pari-2.1.7.tar -T config/MANIFEST
+
+distrib: tar setdir
+	gzip pari-2.1.7.tar
+	mv pari-2.1.7.tar.gz pari-2.1.7.tgz
+
+dosdistrib: gpman
+	-zip -kr GPB_217.ZIP GP.EXE README README.DOS ../EMX/README.DOC ../RSX/README.TXT
+	-zip -k GPD_217.ZIP doc/*.tex doc/gphelp doc/gp.man examples misc/gprc* misc/gpalias
+
+etags:
+	cd src; sh make_emacs_tags
+
+ctags:
+	src/make_vi_tags /var/www/michel/perlScripts/Math-Pari-2.01080605/pari-2.1.7/src
+
+benchbx: pari-2.1.7.tgz
+	rcp pari-2.1.7.tgz pari@megrez.math.u-bordeaux.fr:PARINEW
+	rsh megrez.math.u-bordeaux.fr -l pari "cd PARINEW; /usr/local/bin/gzip -dc pari-2.1.7.tgz|tar xf -; ./makeall pari-2.1.7"

@@ -1,0 +1,57 @@
+This file contains message digests of all files listed in MANIFEST,
+signed via the Module::Signature module, version 0.68.
+
+To verify the content in this distribution, first make sure you have
+Module::Signature installed, then type:
+
+    % cpansign -v
+
+It will check each file's integrity, as well as the signature's
+validity.  If "==> Signature verified OK! <==" is not displayed,
+the distribution may already have been compromised, and you should
+not run its Makefile.PL or Build.PL.
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+SHA1 98b9dba9097e9a34261de47ca4f84633563f7678 CHANGES
+SHA1 d6a6c30ee6d9ba6b9afab8bbf6a25e1b23c744e0 LICENSE
+SHA1 19b8b865bb77ae8787cc2a2581fc816a80a3fbd7 MANIFEST
+SHA1 411ab4f05c252f85f12f12e087bae0adc5ba0aad MANIFEST.SKIP
+SHA1 6f1cb8a4f669b99c75707a2342fcd635922a5825 META.json
+SHA1 772c1955a15b403ae4a0fca376b05719f2afaa6b META.yml
+SHA1 3bcab7750fb1a602dfb6b8afec6269235dce360e Makefile.PL
+SHA1 99b736157d6c30930d844e192337598cbf924562 README
+SHA1 03a9a3dde7d4fcc3eb2e8f245ab0b0253f1d5821 bigfltpm.inc
+SHA1 a8f364fea5e2993f5ae7bd3f8463024175d33e24 bigfltpm.t
+SHA1 108a20412616ea34d67b93891383d47e3a619120 bigintpm.inc
+SHA1 e91b777f7c22648d8debaf4f663d519decda083b bigintpm.t
+SHA1 5bdf82ef7085b97caa496bfc71ab1fbfe48ef9e8 biglog.t
+SHA1 da260b6e02b220868fc7b4c0f87569299402fbf7 bigroot.t
+SHA1 7b4ae50ebac72d20761171c4c2b50c206344ea40 inc/Module/Install.pm
+SHA1 d9fe55a427fe2fd75b5029afeeaa61b592e07f79 inc/Module/Install/Base.pm
+SHA1 62d3922826d9f89f20c185e7031ac8f028504745 inc/Module/Install/Can.pm
+SHA1 dc809f64fb70a26b069a36f8d3d353d520dbb7e1 inc/Module/Install/Fetch.pm
+SHA1 73ab91490a628452cc140db72ef9d13a1326d211 inc/Module/Install/Makefile.pm
+SHA1 8ce3f2b414e4617e6233dd4ba10830f8c5d672ec inc/Module/Install/Metadata.pm
+SHA1 3b0acd2eeac93a0afe48120f5648f0db362e5bbf inc/Module/Install/Win32.pm
+SHA1 f08924f051e623f8e09fa6a121993c4a9cf7d9eb inc/Module/Install/WriteAll.pm
+SHA1 3d6d08f33750b7a6463c37d948942f7ecef74e09 lib/Math/BigInt/Pari.pm
+SHA1 a2d393f9d265801f8ef022725d03f83b616b2fe1 t/00sig.t
+SHA1 2175a2097aa90eb4f22dddb93e5f0bc50dedbe0f t/01load.t
+SHA1 02ef05af53cb7378452590324bb21dfe61f44069 t/02pod.t
+SHA1 463c1d53fdfe2258d8630f5540bb53fbb628e99e t/03podcov.t
+SHA1 d05514d6cae3afa4feb983d5467eaf9422aa546c t/bigfltpm.inc
+SHA1 a8f364fea5e2993f5ae7bd3f8463024175d33e24 t/bigfltpm.t
+SHA1 c1ba2070e47877670e758b807858acb8a0877da4 t/bigintpari.t
+SHA1 845e7daa3c6b2463a6fdc9218044975801547bb8 t/bigintpm.inc
+SHA1 5c7e31a73f1827d08118f96cf31d5d4e792ab8c0 t/bigintpm.t
+SHA1 5bdf82ef7085b97caa496bfc71ab1fbfe48ef9e8 t/biglog.t
+SHA1 da260b6e02b220868fc7b4c0f87569299402fbf7 t/bigroot.t
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Cygwin)
+
+iEYEARECAAYFAk5jykkACgkQVQvyyU1bchqiaQCfV3gFS6RPZ/tIxsfNydreF7Jg
+PU0AmgMYqKRiZl+8ZqH8Z42R2ELhzrpf
+=pPgt
+-----END PGP SIGNATURE-----

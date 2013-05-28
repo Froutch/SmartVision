@@ -3,4 +3,5 @@
 use strict;
 use warnings;
 
-system ("sudo echo \"$ARGV[1]\" > $ARGV[0]");
+system ("sudo $ARGV[1] > $ARGV[0]");
+

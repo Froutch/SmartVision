@@ -13,18 +13,6 @@
 	<?php  ?>
 	<h1>Page de configuration de Bind</h1>
 	<br>
-	  <?php
-        echo '<form method="post" action="index.php?page=bind_config">';?>
-        <input type="submit" value="Restart Bind" name="bindrestart">
-        </form>
-<?php
-        if( isset($_POST['bindrestart']))
-        {
-		$affiche = "/var/www/salman/vues/bindrestart.txt";
-		system("sudo perl perlScripts/bind_restart.pl ".$affiche." \"/etc/init.d/bind9 restart\"");
-		$contenu2 = fread(fopen($affiche, "r"), filesize($affiche)); print $contenu2;
-        }
-        ?>
 	
 <?php
 	if( !isset($_GET['f']) || !$_GET['f'] || strpos('/', $_GET['f']) || strpos('..', $_GET['f']) ) $filename = 'named.conf.local';
@@ -36,6 +24,7 @@
 	if (isset($_POST['script_modify'])) 
 	{
 		system("sudo perl perlScripts/create_dir.pl ".$lien." \"".$_POST['script_modify']."\"");
+		echo $_POST['script_modify'];
 	}
 	
 	echo "<h3>/etc/bind/".$filename."</h3>";

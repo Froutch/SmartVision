@@ -14,41 +14,42 @@
 	<h1>Page de configuration de Bind</h1>
 	<br>
 	
-	<?php
-		if( !isset($_GET['f']) || !$_GET['f'] || strpos('/', $_GET['f']) || strpos('..', $_GET['f']) ) $filename = 'named.conf.local';
-		else $filename = $_GET['f'];
-		
-		if (isset($_POST['script_modify'])) 
+<?php
+	if( !isset($_GET['f']) || !$_GET['f'] || strpos('/', $_GET['f']) || strpos('..', $_GET['f']) ) $filename = 'named.conf.local';
+	else $filename = $_GET['f'];
+
+	
+	$lien = "/etc/bind/".$filename;
+
+	if (isset($_POST['script_modify'])) 
+	{
+		system("sudo perl perlScripts/create_dir.pl ".$lien." \"".$_POST['script_modify']."\"");
+		echo $_POST['script_modify'];
+	}
+	
+	echo "<h3>/etc/bind/".$filename."</h3>";
+	
+	system("sudo ls /etc/bind > /var/www/salman/vues/ls_etc_bind.txt");
+	$handle = @fopen("/var/www/salman/vues/ls_etc_bind.txt", "r");
+	if ($handle) 
+	{
+		echo "<select onChange='change_file()' id='selectOpt'>";
+		while (($buffer = fgets($handle, 4096)) !== false) 
 		{
-			$lien = "/etc/bind/".$filename;
-			$lien1 = "modify_config/".$filename;
-			system("sudo perl perlScripts/create_dir.pl ".$lien1." \"".$_POST['script_modify']."\" ".$lien."");
-			echo $_POST['script_modify'];
+			$buffer = substr($buffer,0,-1);
+			echo "<option value='".$buffer."'";
+			
+			if($buffer == $filename) echo " selected='selected' ";
+			echo ">".$buffer."</option>";
 		}
-		
-		echo "<h3>/etc/bind/".$filename."</h3>";
-		
-		system("sudo ls /etc/bind > /var/www/salman/vues/ls_etc_bind.txt");
-		$handle = @fopen("/var/www/salman/vues/ls_etc_bind.txt", "r");
-		if ($handle) 
+		echo"</select>";
+		if (!feof($handle)) 
 		{
-			echo "<select onChange='change_file()' id='selectOpt'>";
-			while (($buffer = fgets($handle, 4096)) !== false) 
-			{
-				$buffer = substr($buffer,0,-1);
-				echo "<option value='".$buffer."'";
-				
-				if($buffer == $filename) echo " selected='selected' ";
-				echo ">".$buffer."</option>";
-			}
-			echo"</select>";
-			if (!feof($handle)) 
-			{
-				echo "Erreur: fgets() a échoué\n";
-			}
-			fclose($handle);
+			echo "Erreur: fgets() a échoué\n";
 		}
-	?>
+		fclose($handle);
+	}
+?>
 <script> 
 	var myselect = document.getElementById("selectOpt");
 	
@@ -61,7 +62,7 @@
 </script>
 	
 	<?php echo'<form method="post" action="index.php?page=bind_config&f='.$filename.'">'; ?>
-		<textarea name="script_modify" cols="70" rows="30"><?php echo system("cat /etc/bind/".$filename.""); ?></textarea>
+		<textarea name="script_modify" cols="70" rows="30"><?php $contenu = fread(fopen($lien, "r"), filesize($lien)); print $contenu; ?></textarea>
 		<input type='submit' value='Modifier' />
 	</form>
 

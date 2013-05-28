@@ -1,0 +1,8 @@
+user anonymous auto-download-Math-Pari@cpan.org
+cd /pub/pari/unix/
+dir
+cd OLD
+dir
+binary
+get pari-2.1.7.tgz
+quit

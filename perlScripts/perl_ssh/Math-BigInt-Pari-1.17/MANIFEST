@@ -1,0 +1,35 @@
+bigfltpm.inc
+bigfltpm.t
+bigintpm.inc
+bigintpm.t
+biglog.t
+bigroot.t
+CHANGES
+inc/Module/Install.pm
+inc/Module/Install/Base.pm
+inc/Module/Install/Can.pm
+inc/Module/Install/Fetch.pm
+inc/Module/Install/Makefile.pm
+inc/Module/Install/Metadata.pm
+inc/Module/Install/Win32.pm
+inc/Module/Install/WriteAll.pm
+lib/Math/BigInt/Pari.pm
+LICENSE
+Makefile.PL
+MANIFEST			This list of files
+MANIFEST.SKIP
+README
+t/00sig.t
+t/01load.t
+t/02pod.t
+t/03podcov.t
+t/bigfltpm.inc
+t/bigfltpm.t
+t/bigintpari.t
+t/bigintpm.inc
+t/bigintpm.t
+t/biglog.t
+t/bigroot.t
+META.yml                                 Module YAML meta-data (added by MakeMaker)
+META.json                                Module JSON meta-data (added by MakeMaker)
+SIGNATURE                                Public-key signature (added by MakeMaker)

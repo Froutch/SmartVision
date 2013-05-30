@@ -29,7 +29,9 @@
                 system("sudo \"".$_POST['script_modify']."\" > ".$filename."");
         }
         echo "<h3>/etc/tinydns/root/".$filename."</h3>";
-        system("sudo ls /etc/tinydns/root/ > ls_etc_tinydns_root.txt");
+
+        system("sudo perl perlScripts/exec_cmd.pl \"ls /etc/tinydns/root > /var/www/salman/vues/ls_etc_tinydns_root.txt\"");
+
         $handle = @fopen("/var/www/alex/vues/ls_etc_tinydns_root.txt", "r");
         if ($handle)
         {

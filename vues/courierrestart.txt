@@ -1,0 +1,2 @@
+Stopping Courier IMAP server: imapd.
+Starting Courier IMAP server: imapd.

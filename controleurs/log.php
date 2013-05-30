@@ -1,12 +1,11 @@
 <?php
-	include('modeles/terminal.php');
-	if(!empty($_POST['req']))
+	if(!empty($_POST['login']))
 	{
-		command($_POST['req']);
+		$result = exec("sudo perlScripts/log.pl ".$_POST['ip']." ".$_POST['login']." ".$_POST['mdp']);
 	}
 	include('vues/header.php');
-
-	include('vues/terminal.php');
+	echo $result;
+	include('vues/log.php');
 
 	include('vues/footer.php');
 ?>

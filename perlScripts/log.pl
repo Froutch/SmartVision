@@ -5,6 +5,20 @@ use warnings;
 use Math::Pari;
 use Net::SSH::Perl;
 
-my $ssh = Net::SSH::Perl->new("10.8.105.31");
-$ssh->login("root", "aloha");
-
+if(my $ssh = Net::SSH::Perl->new($ARGV[0]))
+{
+	
+	if($ssh->login($ARGV[1], $ARGV[2]))
+	{
+		print"2";
+		$ssh->sock;
+	}
+	else
+	{
+		print"1";
+	}
+}
+else
+{
+	print"0";
+}

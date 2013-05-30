@@ -4,9 +4,13 @@
 	<input type="hidden" name="ip" value="<?php echo $_GET['ip'];?>"/>
 	<input type="hidden" name="query" value="<?php echo $_SERVER['QUERY_STRING']; ?>"/>
 <?php
-	if(isset($login_error) && $login_error == 1)
+	if($result == 2)
 	{
-		echo "<center><a href='' data-role='button' data-theme='e' data-inline='true' data-transition='pop'>Vous avez entré un mauvais login ! :(</a></center>";
+		echo "<center><a href='' data-role='button' data-theme='e' data-inline='true' data-transition='pop'>Identification réussie</a></center>";
+	}
+	else if(!empty($_POST['login']))
+	{
+		echo "<center><a href='' data-role='button' data-theme='e' data-inline='true' data-transition='pop'>L'identification a échoué (mauvais login/mdp)</a></center>";
 	}
 ?>
 

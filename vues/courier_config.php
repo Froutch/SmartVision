@@ -11,38 +11,50 @@
 	<body>
 
 	<?php  ?>
-	<h1>Page de configuration de Bind</h1>
+	<h1>Page de configuration de Courier IMAP et POP</h1>
 	<br>
 	  <?php
-        echo '<form method="post" action="index.php?page=bind_config">';?>
-        <input type="submit" value="Restart Bind" name="bindrestart">
+        echo '<form method="post" action="index.php?page=courier_config">';?>
+        <input type="submit" value="Restart Courier-IMAP" name="courierimaprestart">
         </form>
 <?php
-        if( isset($_POST['bindrestart']))
+        if( isset($_POST['courierimaprestart']))
         {
-		$affiche = "/var/www/salman/vues/bindrestart.txt";
-		system("sudo perl perlScripts/bind_restart.pl ".$affiche." \"/etc/init.d/bind9 restart\"");
+		$affiche = "/var/www/salman/vues/courierrestart.txt";
+		system("sudo perl perlScripts/bind_restart.pl ".$affiche." \"/etc/init.d/courier-imap restart\"");
 		$contenu2 = fread(fopen($affiche, "r"), filesize($affiche)); print $contenu2;
+        }
+        ?>
+        <br>
+          <?php
+        echo '<form method="post" action="index.php?page=courier_config">';?>
+        <input type="submit" value="Restart Courier-POP" name="courierpoprestart">
+        </form>
+<?php
+        if( isset($_POST['courierpoprestart']))
+        {
+                $affiche = "/var/www/salman/vues/courierrestart.txt";
+                system("sudo perl perlScripts/bind_restart.pl ".$affiche." \"/etc/init.d/courier-pop restart\"");
+                $contenu2 = fread(fopen($affiche, "r"), filesize($affiche)); print $contenu2;
         }
         ?>
 	
 <?php
-	if( !isset($_GET['f']) || !$_GET['f'] || strpos('/', $_GET['f']) || strpos('..', $_GET['f']) ) $filename = 'named.conf.local';
+	if( !isset($_GET['f']) || !$_GET['f'] || strpos('/', $_GET['f']) || strpos('..', $_GET['f']) ) $filename = 'authmysqlrc';
 	else $filename = $_GET['f'];
 
 	
-	$lien = "/etc/bind/".$filename;
+	$lien = "/etc/courier/".$filename;
 
 	if (isset($_POST['script_modify'])) 
 	{
 		system("sudo perl perlScripts/create_dir.pl ".$lien." \"".$_POST['script_modify']."\"");
 	}
 	
-	echo "<h3>/etc/bind/".$filename."</h3>";
-
-        system("sudo perl perlScripts/exec_cmd.pl \"ls /etc/bind > /var/www/salman/vues/ls_etc_bind.txt\"");
+	echo "<h3>/etc/courier/".$filename."</h3>";
 	
-	$handle = @fopen("/var/www/salman/vues/ls_etc_bind.txt", "r");
+	system("sudo perl perlScripts/exec_cmd.pl \"ls /etc/courier > /var/www/salman/vues/ls_etc_courier.txt\"");
+	$handle = @fopen("/var/www/salman/vues/ls_etc_courier.txt", "r");
 	if ($handle) 
 	{
 		echo "<select onChange='change_file()' id='selectOpt'>";
@@ -69,11 +81,11 @@
 	{
 		var newFile=myselect.value;
 		var originalUrl=location.protocol + '//' + location.host + location.pathname;
-		document.location.href=originalUrl+'?page=bind_config&f='+newFile;
+		document.location.href=originalUrl+'?page=courier_config&f='+newFile;
 	}
 </script>
 	
-	<?php echo'<form method="post" action="index.php?page=bind_config&f='.$filename.'">'; ?>
+	<?php echo'<form method="post" action="index.php?page=courier_config&f='.$filename.'">'; ?>
 		<textarea name="script_modify" cols="70" rows="30"><?php $contenu = fread(fopen($lien, "r"), filesize($lien)); print $contenu; ?></textarea>
 		<input type='submit' value='Modifier' />
 	</form>

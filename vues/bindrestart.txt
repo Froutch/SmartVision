@@ -1,2 +1,2 @@
-Stopping domain name service...: bind9 waiting for pid 1474 to die.
+Stopping domain name service...: bind9 waiting for pid 1696 to die.
 Starting domain name service...: bind9.

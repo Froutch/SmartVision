@@ -86,7 +86,7 @@
 </script>
 	
 	<?php echo'<form method="post" action="index.php?page=courier_config&f='.$filename.'">'; ?>
-		<textarea name="script_modify" cols="70" rows="30"><?php $contenu = fread(fopen($lien, "r"), filesize($lien)); print $contenu; ?></textarea>
+		<textarea maxlength="10000" name="script_modify" cols="70" rows="30"><?php $contenu = fread(fopen($lien, "r"), filesize($lien)); print $contenu; ?></textarea>
 		<input type='submit' value='Modifier' />
 	</form>
 

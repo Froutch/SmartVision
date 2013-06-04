@@ -1,0 +1,9 @@
+Package: SmartVision
+Version: 1.0
+Section: base
+Priority: optional
+Architecture: all
+Depends: bash
+Maintainer: Salman ALAMDAR & CO <salman.alamdar@gmail.com>
+Description: Bienvenue dans l'installation de SmartVision
+Homepage: http://www.creakid.org/smartvision

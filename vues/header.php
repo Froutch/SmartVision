@@ -29,10 +29,14 @@ if(!empty($_SESSION['id_admin']))
 <div data-role="navbar">
 	<ul>
 		<li><a href="index.php?page=config&host=localhost" class="ui-btn-active ui-state-persist">Ma machine</a></li>
-		<li><a href="b.html">Two</a></li>
-		<li><a href="b.html">Two</a></li>
-		<li><a href="b.html">Two</a></li>
-		<li><a href="b.html">Two</a></li>
+<?php
+$query = 'SELECT * FROM machines';
+$result = mysql_query($query);
+while($data = mysql_fetch_array($result))
+{
+		echo "<li><a href=''>".$data['ip']."</a></li>";
+}
+?>
 	</ul>
 
 </div><!-- /navbar -->

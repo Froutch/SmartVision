@@ -9,7 +9,9 @@ named.conf
 named.conf.default-zones
 named.conf.local
 named.conf.options
+named.namedmanager.conf
 rndc.key
 tata
 titi.pipi
+zones
 zones.rfc1918

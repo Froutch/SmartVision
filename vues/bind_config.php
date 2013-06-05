@@ -17,6 +17,8 @@
         echo '<form method="post" action="index.php?page=bind_config">';?>
         <input type="submit" value="Restart Bind" name="bindrestart">
         </form>
+<h3> Etat du DNS </h3>
+<?php echo system("dig"); ?>
 <?php
         if( isset($_POST['bindrestart']))
         {

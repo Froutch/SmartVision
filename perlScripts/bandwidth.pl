@@ -1,8 +1,8 @@
 #!/usr/bin/perl -w
 use strict;
 
-my $traficIn = `snmpget -v 1 -c public localhost .ifInOctets.2`;
-my $traficOut = `snmpget -v 1 -c public localhost .ifOutOctets.2`;
+my $traficIn = `snmpget -v 1 -c public localhost ifInOctets.2`;
+my $traficOut = `snmpget -v 1 -c public localhost ifOutOctets.2`;
 
 my @traficI = split(/ +/, $traficIn);
 my @traficO = split(/ +/, $traficOut);
@@ -10,8 +10,8 @@ my @traficO = split(/ +/, $traficOut);
 my $i=0;
 while ($i < 11)
 {
-	system `rrdtool update ./bandwidth.rrd N:$traficI[3]`;
-	system `rrdtool update ./bandwidth2.rrd N:$traficO[3]`;
+	system `rrdtool update bandwidth.rrd N:$traficI[3]`;
+	system `rrdtool update bandwidth2.rrd N:$traficO[3]`;
 	$i++;
 	sleep 5;
 }

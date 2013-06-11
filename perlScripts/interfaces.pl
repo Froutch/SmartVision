@@ -6,5 +6,5 @@ while (defined(my $ligne = <PROCESS>))
 {
 	chomp($ligne);
 	my @items = split(' +', $ligne);
-	print "$items[0] \t $items[1] \n";
+	print "<tr><td>$items[0]</td><td>$items[1]</td></tr>\n";
 }

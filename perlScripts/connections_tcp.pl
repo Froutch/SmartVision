@@ -3,6 +3,7 @@
 # Script reporting TCP connections and their number
 
 my $grep_string = $ARGV[0];
+my @result;
 
 chomp $grep_string;
 
@@ -19,12 +20,16 @@ else
 
 while (defined(my $output = <TCP>))
 {
+	print "<tr>\n";
 	chomp ($output);
-	print "$output \n";
+	@result = split(" +", $output);
+	print "<td>$result[0]</td><td>$result[1]</td><td>$result[2]</td>";
+	print "<td>$result[3]</td><td>$result[4]</td><td>$result[5]</td>\n";
+	print"</tr>\n\n";
 }
 
 close (TCP);
 
 $output2 = <NB_TCP>;
 chomp ($output2);
-print "Nombre de connexions TCP : $output2 \n";
+print "<strong>Nombre de connexions TCP : $output2</strong> \n";

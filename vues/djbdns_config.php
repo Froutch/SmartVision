@@ -13,8 +13,12 @@
         <h1>Page de configuration de Djbdns</h1>
         <br>
 	<?php
-        echo '<form method="post" action="index.php?page=djbdns_config">';?>
+        echo '<form method="post" action="index.php?page=djbdns_config&f=">';?>
         <input type="submit" value="Restart Djbdns" name="djbdnsrestart">
+        </form>
+ <?php
+        echo '<form method="post" action="index.php?page=add_zone&f=">';?>
+        <input type="submit" value="Ajouter NS" name="addns">
         </form>
 
 <h3> Etat du DNS </h3>

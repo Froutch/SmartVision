@@ -32,4 +32,4 @@ close (TCP);
 
 $output2 = <NB_TCP>;
 chomp ($output2);
-print "<strong>Nombre de connexions TCP : $output2</strong> \n";
+print "<strong>Number of TCP connections : $output2</strong> \n";

@@ -10,7 +10,7 @@
 			</div>
 
 
-			<p class="intro"><center><strong>Bienvenue !</strong> Veuillez entrer vos identifiants <strong>SmartVision</strong>.</center></p>
+			<p class="intro"><center><strong>Hi there !</strong> Please <strong>log in</strong> with your <strong>SmartVision</strong> personal account (:</center></p>
 </div>
 <form action="index.php?page=connect" method="post">
 	<input type="hidden" name="page" value="connect"/>
@@ -18,21 +18,21 @@
 <?php
 	if(isset($login_error) && $login_error == 1)
 	{
-		echo "<center><a href='' data-role='button' data-theme='e' data-inline='true' data-transition='pop'>Vous avez entré un mauvais login ! :(</a></center>";
+		echo "<center><a href='' data-role='button' data-theme='e' data-inline='true' data-transition='pop'>Your login is <strong>totally</strong> wrong ! :(</a></center>";
 	}
 ?>
 
 
 
 <div data-role="fieldcontain">
-	<label for="name"><strong>Login : </strong></label>
+	<label for="name"><strong>Username : </strong></label>
 	<input type="text" name="login" id="name" value="" required>
 </div>
 <div data-role="fieldcontain">
-	<label for="name"><strong>Mot de passe : </strong></label>
+	<label for="name"><strong>Password : </strong></label>
 	<input type="password" name="mdp" id="name" value="" required>
 </div>
-<input type="submit" value="Connexion" data-theme="b"/>
+<input type="submit" value="Log In" data-theme="b"/>
 
 		
-<a href="info.html" data-role="button" data-rel="dialog" data-transition="pop">A Propos</a>	
+<a href="info.html" data-role="button" data-rel="dialog" data-transition="pop">About Us</a>	

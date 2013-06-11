@@ -6,7 +6,7 @@ if ($host == 'localhost')
 
 ?>
 
-<h2>Services sur <?php echo $_GET['host']; ?></h2>
+<h2>Services on <?php echo $_GET['host']; ?></h2>
 <?php
 
         echo"<table cellpadding='5'>";

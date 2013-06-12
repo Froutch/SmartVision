@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 
-open(PROCESS, "df|");
+open(PROCESS, "df -h|");
 
 while (defined(my $ligne = <PROCESS>))
 {

@@ -28,7 +28,7 @@ if(!empty($_SESSION['id_admin']))
 </div>
 <div data-role="navbar">
 	<ul>
-		<li><a href="index.php?page=config&host=localhost" class="ui-btn-active ui-state-persist">MY SYSTEM</a></li>
+		<li><a href="index.php?page=config&host=localhost">MY SYSTEM</a></li>
 <?php
 $query = 'SELECT * FROM machines';
 $result = mysql_query($query);

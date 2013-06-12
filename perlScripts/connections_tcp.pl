@@ -23,7 +23,7 @@ while (defined(my $output = <TCP>))
 	print "<tr>\n";
 	chomp ($output);
 	@result = split(" +", $output);
-	print "<td>$result[0]</td><td>$result[1]</td><td>$result[2]</td>";
+	print "<td>$result[0]</td>";
 	print "<td>$result[3]</td><td>$result[4]</td><td>$result[5]</td>\n";
 	print"</tr>\n\n";
 }

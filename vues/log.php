@@ -18,11 +18,11 @@
 
 
 <div data-role="fieldcontain">
-	<label for="name"><strong>Login : </strong></label>
+	<label for="name"><strong>Username : </strong></label>
 	<input type="text" name="login" id="name" value="" required>
 </div>
 <div data-role="fieldcontain">
-	<label for="name"><strong>Mot de passe : </strong></label>
+	<label for="name"><strong>Password : </strong></label>
 	<input type="password" name="mdp" id="name" value="" required>
 </div>
 <input type="submit" value="Log In" data-theme="b"/>

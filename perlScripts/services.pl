@@ -6,18 +6,19 @@ while (defined(my $ligne = <PROCESS>))
 {	
 	chomp($ligne);
 	@items = split(/ +/, $ligne);
-	print "<tr style='padding: -10px;'><td>$items[0]</td><td>";
+	print "<tr><td style='width:90%;'><strong>$items[0]</strong></td><td>";
 	
-	print"<select name='$items[0]' id='flip-mini' data-role='slider'>";
+	print"<select name='$items[0]' id='flip-1' data-role='slider'>";
 	if ($ligne =~ m/on/)
 	{
-		print "<option selected='selected'>ON</option>";
 		print "<option>OFF</option>";
+		print "<option selected='selected'>ON</option>";
 	}
 	else 
 	{
-		print "<option>ON</option>";
 		print "<option selected='selected'>OFF</option>";
+		print "<option>ON</option>";
 	}
+	print"</select>";
 	print "</td></tr>\n";
 }

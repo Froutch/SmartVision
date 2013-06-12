@@ -53,11 +53,9 @@ if ($host == 'localhost')
                                         <h2>TCP Connections</h2>
 <?php
 
-        echo"<table cellpadding='5'>";
+        echo"<table cellpadding='5' style='font-size: 0.8em;'>";
 	echo "<tr>";
 	echo"<td><strong>Proto</strong></td>";
-	echo"<td><strong>Recv-Q</strong></td>";
-	echo"<td><strong>Send-Q</strong></td>";
 	echo"<td><strong>Local Address</strong></td>";
 	echo"<td><strong>Remote Address</strong></td>";
 	echo"<td><strong>State</strong></td>";

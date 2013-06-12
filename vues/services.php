@@ -1,17 +1,15 @@
-
-
 <?php
 if ($host == 'localhost')
 {
 
 ?>
 
-<h2>Services on <?php echo $_GET['host']; ?></h2>
+<center><h2>Services on <?php echo $_GET['host']; ?></h2></center>
 <?php
 
-        echo"<table cellpadding='5'>";
+        echo"<center><table cellspacing='0' cellpadding='0'>";
         system('sudo perlScripts/services.pl');
-        echo"</table>";
+        echo"</table></center>";
         echo"</div>";
 
 

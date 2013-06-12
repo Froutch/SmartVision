@@ -24,7 +24,7 @@ if(!empty($_POST['req']))
 }
 else
 {
-	echo "Bienvenue sur le terminal de votre machine ! Ici s'afficheront les résultats de vos requêtes.";
+	echo "Welcome to your Shell ! Here are displayed the results of your requests.";
 }
 ?>
 	
@@ -33,8 +33,8 @@ else
 <center>
 <form action="index.php?page=terminal" method="POST">
 <div data-role="fieldcontain">
-<input type="text" name="req" id="name" data-role="none" placeHolder="commande"  style="width: 80%" value="" required>
+<input type="text" name="req" id="name" data-role="none" placeHolder="request"  style="width: 80%" value="" required>
 </div>
-	<input type="submit" data-inline="true" value="Envoyer" data-theme="b"/>
+	<input type="submit" data-inline="true" value="Send" data-theme="b"/>
 	</form>
 	</center>

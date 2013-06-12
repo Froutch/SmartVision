@@ -1,4 +1,4 @@
 #!/usr/bin/perl
 
-system "hostname";
+system "uname -a";
 

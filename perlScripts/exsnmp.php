@@ -38,6 +38,8 @@ else
 }
 ?>
 <br/>
-<img src="../graph/bandwidth.png" alt="graphM">
+<img src="../graph/bandwidth.png" alt="graphH">
+<br/>
+<img src="../graph/bandwidthDAY.png" alt="graphD">
 </body>
 </html>

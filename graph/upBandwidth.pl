@@ -16,4 +16,6 @@ while ($i < 11)
 	sleep 5;
 }
 
-my $toto=`rrdtool graph /var/www/guigui/graph/bandwidth.png --start -3600 --vertical-label bps DEF:inoctets=/var/www/guigui/graph/bandwidth.rrd:in:AVERAGE DEF:outoctets=/var/www/guigui/graph/bandwidth.rrd:out:AVERAGE CDEF:inbps=inoctets,8,\* CDEF:outbps=outoctets,8,\* AREA:inbps#00FF00:"Traffic entrant" LINE1:outbps#0000FF:"Traffic sortant"`;
+my $min=`rrdtool graph /var/www/guigui/graph/bandwidth.png --start -3600 --vertical-label bps DEF:inoctets=/var/www/guigui/graph/bandwidth.rrd:in:AVERAGE DEF:outoctets=/var/www/guigui/graph/bandwidth.rrd:out:AVERAGE CDEF:inbps=inoctets,8,\* CDEF:outbps=outoctets,8,\* AREA:inbps#00FF00:"Traffic entrant" LINE1:outbps#0000FF:"Traffic sortant"`;
+
+my $day=`rrdtool graph /var/www/guigui/graph/bandwidthDAY.png --start -86400 --vertical-label bps DEF:inoctets=/var/www/guigui/graph/bandwidth.rrd:in:AVERAGE DEF:outoctets=/var/www/guigui/graph/bandwidth.rrd:out:AVERAGE CDEF:inbps=inoctets,8,\* CDEF:outbps=outoctets,8,\* AREA:inbps#00FF00:"Traffic entrant" LINE1:outbps#0000FF:"Traffic sortant"`;

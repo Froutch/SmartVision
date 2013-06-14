@@ -1,0 +1,21 @@
+Version 1.20
+---------
+* Modified install.bin to be more interactive
+* Modified uninstall.bin to remove files based on user input during install
+* Fixed a few bugs with webdhcp_client.cgi script
+* Refined comments in webdhcp_client.conf file
+
+Version 1.10
+------------
+* Major improvements to documentation
+* Fixed the 'test.pl' for Makefile
+
+Version 1.01
+------------
+* Added install and uninstall scripts
+* Further cleaned documentation
+* Refined portability
+
+Version 1.00
+------------
+* Initial release

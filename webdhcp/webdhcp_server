@@ -1,0 +1,287 @@
+#!/usr/local/bin/perl -Tw
+
+eval 'exec /usr/local/bin/perl -Tw -S $0 ${1+"$@"}'
+    if 0; # not running under some shell
+# Note: CHILD signal is ignored to prevent zombies!!!
+# $Id: webdhcpd,v 1.4 2001/04/18 13:19:36 root Stab root $
+# WebDHCP - Add, Delete, Modify, and Query DHCP entries via a web browser
+# Copyright (C) 2001 Michael Lewis
+# 
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+#
+
+use IO::Socket;
+use Crypt::CBCeasy;
+use Fcntl ':flock';
+
+# Use the following line if you do not have root access to put this
+# module in the perl tree
+# use lib "/local/dhcp";
+#
+use Webdhcp_Server;
+
+$encryptkey = "Guigui a des gros bras, Michel est autiste";
+#$encryptkey = "This is my invalid key";
+
+$SIG{'INT'} = \&shutdown;
+$SIG{'QUIT'} = \&shutdown;
+$SIG{'ABRT'} = \&shutdown;
+$SIG{'PIPE'} = \&shutdown;
+$SIG{'STOP'} = \&shutdown;
+$SIG{CHLD} = 'IGNORE';
+
+$| = 1;
+
+#===================================================================================
+#** The following Part should be reviewed before putting the Server in production **
+#===================================================================================
+
+#$allowed = '127.0.0.1';
+$allowed = '192.168.96.60';
+$port = shift || '8888';
+$backupdir = '/etc/dhcp-backup';
+$pidfile = '/usr/local/webdhcp/var/webdhcpd.pid';
+
+#===================================================================================
+#** Nothing should be modified from this point 
+#===================================================================================
+
+$server = IO::Socket::INET->new(LocalPort =>  $port,
+				Reuse    =>  1,
+				Listen    =>  1)
+    or die "Can't be a server on port: $port : $@\n";
+
+  ## Check to see if the backup directory exists
+  if (! -d $backupdir){
+        mkdir("$backupdir",'0755');
+  }    
+
+print "\nStarting server [$$]\n\n";
+
+open(PID,">$pidfile") || error("Cannot open file $pidfile for writing: $!");
+	flock (PID, LOCK_EX);
+	print PID $$;
+	flock (PID, LOCK_UN);
+close(PID);
+
+
+
+
+while ($client = $server->accept()) {
+
+	## Make sure that the client is the 
+	## only one allowed in...
+        $ip = $client->peerhost;
+	if ($ip ne "$allowed") {
+		print "Client: $ip is NOT Allowed in!!!\n";
+		print "**********************\n";
+		print $client "Access Denied!\n";
+		print $client "Terminating connection...\n";
+		print "Terminating connection...\n";
+		close($client);
+		next;
+	}
+    	$pid = fork();
+    	die "Cannot fork: $!\n" unless defined ($pid);
+    	if ($pid == 0) {
+	print "**********************\n";
+	print "$$: Parent forking\n";
+	print "Connect from $ip\n";
+		#print "$$: Child Reading\n";
+		while (<$client>) {
+		    if ($_ =~ /^begin/) {
+			$in = '';
+			next;
+		    } elsif ($_ =~ /^end/) {
+			$pt = &recvformat($in);
+			$info = &parse($pt);
+			#print "RECV\n$pt\n";
+			$outmsg = "$info";
+			$outmsg = &sendformat($outmsg);
+			print $client $outmsg;
+			#print "Sent Client:\n $info"; ## TEST
+			print "$$: Child Exiting\n\n";
+			print "**********************\n";
+			exit;
+		    } else {
+			$in .= "$_";
+		    }
+	}
+	#print "$$: Child Exiting\n";
+	#exit(0);
+    }
+    #print "$$: Parent Looping\n";
+}
+
+print "$$: Parent\n";
+close ($server);
+
+sub parse {
+	my ($data) = shift;
+	#exit(1) if ($data !~ /^\w:.*/);
+	my ($info, $result, $h, $t, $q, $v, $x, $e, @d)= undef;
+	my $d = new Webdhcp_Server;
+	$d->debug(0); 
+	my ($w,$stuff) = split (/\|/,$data);
+
+	## The next if block is a result of using a hash on the
+	## client side to send parameters to the server. Therefore,
+	## parameters may not be in any particular order...
+
+	if ($w eq 'C'){
+		my ($o, $k) = split (/\,/,$stuff);
+		my ($x, $omac) = split (/\=/,$o);
+		my ($y, $nmac) = split (/\=/,$k);
+
+		if ($x eq 'omac'){	## A little hack to make sure the args are in order
+			print "Passing in $omac as old and $nmac as new...\n";
+			$result = $d->changemac($omac, $nmac);
+		} else {
+			print "Passing in $omac as new and $nmac as old...\n";
+			$result = $d->changemac($nmac, $omac);
+		}
+	} elsif ($w eq 'S'){
+		my ($o, $k) = split (/\,/,$stuff);
+		my ($a, $b) = split (/\=/,$o);
+		my ($e, $f) = split (/\=/,$k);
+
+		if ($a eq 'mac'){	## A little hack to make sure the args are in order
+			print "Passing in $b first and $f second\n";
+			$result = $d->changeip($b, $f);
+		} else {
+			print "Passing in $f first and $b second\n";
+			$result = $d->changeip($f, $b);
+		}
+	} elsif ($w =~ /[A|F|L|D]/) {
+
+		#my ($mac,$ip,$name) = split (/\,/,$stuff);
+		my ($mac,$ip,$name) = undef;
+		my @arguments = split (/\,/,$stuff);
+		
+		foreach $e (@arguments){
+			SWITCH: {
+				if ($e =~ /^mac/) { $mac = $e; next SWITCH; }
+				if ($e =~ /^ip/) { $ip = $e; next SWITCH; }
+				if ($e =~ /^hn/) { $name = $e; next SWITCH; }
+			}
+		}
+	
+		if (defined $mac){
+			($tmac, $macvalue) = split (/\=/,$mac);
+			$entry{$tmac} = $macvalue;
+		} 
+		if (defined $ip){
+			($tip, $ipvalue) = split (/\=/,$ip);
+			$entry{$tip} = $ipvalue;
+		}
+		if (defined $name){
+			($tname, $namevalue) = split (/\=/,$name);
+			$entry{$tname} = $namevalue;
+		}
+		if ($w eq 'A') {
+		## ADD Function
+			$result = $d->add($entry{$tname}, $entry{$tmac}, $entry{$tip});
+
+		} elsif ($w eq 'F' or $w eq 'L' or $w eq 'D') {
+		## FIND,DELETE, or FIND_IN_LEASES Function
+			if (defined $tmac) {
+				#($v,$x) = ($tmac, $entry{$tmac});
+				($v,$x) = ($tmac, $macvalue);
+			}elsif (defined $tip) {
+				print "IP is defined as $tip\n";
+				($v, $x) = ($tip, $ipvalue);
+			}elsif (defined $tname) {
+				($v, $x) = ($tname, $namevalue);
+				#print "TNAME: $tname and NAMV: $namevalue\n";
+			}
+			print "v: $v, x: $x\n";
+	
+			$h = $d->lookup_host($v, $x) if ($w eq 'F');
+			$h = $d->delete($v,$x) if ($w eq 'D');
+	
+			if (defined $h and $h eq '0'){
+				print "lookup_host returned zero! (NOT FOUND)\n";
+				$result = 0;
+				$d->error("Host was not found in database!");
+			}else{
+				if ($w =~ 'F'){
+					@d = $d->getblock(0,$h);
+				}elsif ($w =~ 'L'){
+					@d = $d->get_lease_block($v,$x);
+					# Need a method to test if @d has data
+				}
+
+				foreach (@d){
+					next if (defined $_ and $_ =~ /^#/);
+					next if (defined $_ and $_ =~ /^\s.*#/); 
+					$info .= $_ if (defined $_);
+				}
+			}
+		}
+	}else{
+		$result = 0;
+		$info .= "$w is not an option at this time";
+	}
+
+	#$info .= $d->read_error if ($result == 0);
+	if (defined $result && $result == 0){
+		$info = $d->read_error;
+	}
+	$info .= "-" x 20;
+	$info .= "\n";
+	while (($key, $value) = each(%entry)){
+		if (defined $key && defined $value){
+			$key = "a MAC Address of" if ($key =~ /^mac$/);
+			$key = "an IP Address of" if ($key =~ /^ip$/);
+			$key = "a Hostname of" if ($key =~ /^hn$/);
+
+			$info .= "You entered $key $value\n";
+			print "Client entered $key $value\n";
+		}
+	}
+	$info .= "-" x 20;
+	$info .= "\n";
+
+return ($info);
+}
+
+sub sendformat {
+    $data = shift;
+    chomp($encryptkey);
+    $^W = 0;
+    $data = Blowfish::encipher($encryptkey, $data);
+    $^W = 1;
+    $data = pack "u", $data;
+    return "begin\n$data\nend\n";
+}
+
+sub recvformat {
+    $data = shift;
+    chomp($encryptkey);
+    $data = unpack "u", $data;
+    eval {
+    	$^W = 0;
+    	$data = Blowfish::decipher($encryptkey, $data);
+    	$^W = 1;
+    };
+    #exit(1) if $@;
+    print "ERROR ERROR ERROR ERROR ERROR !!!!" if $@;
+    return "$data";
+}
+
+sub shutdown {
+	print "\n<-- Shutting down socket... -->\n";
+	exit(1);
+}

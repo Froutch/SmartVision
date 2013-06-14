@@ -1,0 +1,47 @@
+#!/bin/bash
+#
+# WebDHCP start/stop script
+#
+
+logdir='/usr/local/webdhcp/var/'
+webdhcp_exe='/usr/local/webdhcp/webdhcp_server'
+webdhcp_dir='/usr/local/webdhcp'
+
+case "$1" in
+'start')
+	if [ ! -x ${logdir} ];then
+		mkdir -p $logdir
+	fi
+
+	if [ -x ${webdhcp_exe} ]; then
+
+		echo "[** Starting Server **] `date`" >>${logdir}/log 2>&1&
+
+		if [ -d ${logdir} ]; then
+			${webdhcp_exe} >>${logdir}/log 2>&1&
+		else
+			echo "Error! There is no log directory: ${logdir}"
+			exit 1
+		fi
+	else
+		echo "Error! Cannot find ${webdhcp_exe}"
+		exit 1
+	fi
+	;;
+
+'stop')
+	echo "[** Shutting Down Server **] `date` pid[$$]">>${webdhcp_dir}/var/log 2>&1&
+	kill -9 `cat ${logdir}/webdhcpd.pid`
+	/bin/rm -f ${logdir}/webdhcpd.pid
+	;;
+
+'restart')
+	$0 stop
+	$0 start
+	;;
+*)
+	echo "Usage: $0 { start | stop | restart }"
+	exit 1
+	;;
+esac
+exit 0

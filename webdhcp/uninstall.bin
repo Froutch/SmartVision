@@ -1,0 +1,80 @@
+#!/bin/sh
+#
+# WebDHCP install script
+#
+d_installed='.d_installed'
+c_installed='.c_installed'
+logdir='/usr/local/webdhcp/var/'
+webdhcpd_exe='webdhcp_server'
+webdhcpc_exe='webdhcp_client.cgi'
+webdhcpd_dir='/usr/local/webdhcp'
+backupdir=`grep -w backupdir webdhcp_client.conf|awk -F'=' {'print $2'}|sed -e 's/\ //g' -e 's/\;//g' -e 's/\"//g'`
+
+case "$1" in
+'server')
+
+	if [ ! -r ${webdhcpd_dir}/${d_installed} ]; then
+		echo "The Server has not been installed!"
+		exit 1
+	fi
+	
+	# Remove directory for the Server
+	if [ -d ${webdhcpd_dir} ]; then
+		echo "Removing directory for the Server"
+		rm -rf ${webdhcpd_dir}
+	fi
+
+	# Remove backup directory for the DHCP config and lease files
+	if [ -d ${backupdir} ]; then
+		echo "Removing directory for DHCP backups"
+		rm -rf ${backupdir}
+	fi
+
+	# Remove INIT Scripts
+	if [ -d /etc/init.d ]; then
+		echo "Removing init script in /etc/init.d"
+		rm -f /etc/init.d/init.webdhcpd
+		rm -f /etc/rc2.d/S99webdhcpd
+	fi
+
+	if [ -d /etc/rc.d/init.d ]; then
+		echo "Removing init script in /etc/init.d"
+		rm -f /etc/rc.d/init.d/init.webdhcpd
+		rm -f /etc/rc.d/rc2.d/S99webdhcpd
+	fi
+		rm -f install.log
+		echo "Uninstall Finished!"
+
+	;;
+
+'client')
+	
+	if [ ! -r install.log ]; then
+		echo "Cannot find install.log, exiting!"
+		exit 1
+	fi
+
+	webdhcpc_dir=`grep '$webdhcpc_dir' install.log|awk -F'=' '{print $2}'|sed -e '/^$/d'`
+
+	if [ ! -r "${webdhcpc_dir}/${c_installed}" ]; then
+		echo "The Client has not been installed or cannot be found!"
+		exit 1
+	fi
+
+	# Remove directory for the Client
+	if [ -d "${webdhcpc_dir}" ];then
+		echo "Removing directory for the Client in ${webdhcpc_dir}"
+		rm -rf ${webdhcpc_dir}
+	fi
+
+	rm -f install.log
+	echo "Uninstall Finished!"
+
+	;;
+
+*)
+	echo "Usage: $0 { server | client }"
+	exit 1
+	;;
+esac
+exit 0

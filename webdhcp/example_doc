@@ -1,0 +1,254 @@
+192.168.20.1	Firewall
+192.168.20.2	DNS
+192.168.20.3	DHCP
+192.168.20.4	
+192.168.20.5	
+192.168.20.6	
+192.168.20.7	
+192.168.20.8	
+192.168.20.9	
+192.168.20.10	Gateway
+192.168.20.11	
+192.168.20.12	
+192.168.20.13	
+192.168.20.14	
+192.168.20.15	
+192.168.20.16	
+192.168.20.17	
+192.168.20.18	
+192.168.20.19	
+192.168.20.20	
+192.168.20.21	
+192.168.20.22	
+192.168.20.23	
+192.168.20.24	
+192.168.20.25	Hubs
+192.168.20.26	Hubs
+192.168.20.27	Hubs
+192.168.20.28	Hubs
+192.168.20.29	Hubs
+192.168.20.30	Hubs
+192.168.20.31	
+192.168.20.32	
+192.168.20.33	
+192.168.20.34	
+192.168.20.35	
+192.168.20.36	
+192.168.20.37	
+192.168.20.38	
+192.168.20.39	
+192.168.20.40	Proxy Server
+192.168.20.41	
+192.168.20.42	
+192.168.20.43	Network Management Station
+192.168.20.44	
+192.168.20.45	HP5SI Printer
+192.168.20.46	
+192.168.20.47	
+192.168.20.48	Cannon Printer
+192.168.20.49	
+192.168.20.50	
+192.168.20.51	
+192.168.20.52	
+192.168.20.53	
+192.168.20.54	
+192.168.20.55	
+192.168.20.56	
+192.168.20.57	
+192.168.20.58	
+192.168.20.59	
+192.168.20.60	
+192.168.20.61	Dynamic addressing
+192.168.20.62	Dynamic addressing
+192.168.20.63	Dynamic addressing
+192.168.20.64	Dynamic addressing
+192.168.20.65	Dynamic addressing
+192.168.20.66	Dynamic addressing
+192.168.20.67	Dynamic addressing
+192.168.20.68	Dynamic addressing
+192.168.20.69	Dynamic addressing
+192.168.20.70	Dynamic addressing
+192.168.20.71	Dynamic addressing
+192.168.20.72	Dynamic addressing
+192.168.20.73	Dynamic addressing
+192.168.20.74	Dynamic addressing
+192.168.20.75	Dynamic addressing
+192.168.20.76	Dynamic addressing
+192.168.20.77	Dynamic addressing
+192.168.20.78	Dynamic addressing
+192.168.20.79	Dynamic addressing
+192.168.20.80	Dynamic addressing
+192.168.20.81	Dynamic addressing
+192.168.20.82	Dynamic addressing
+192.168.20.83	Dynamic addressing
+192.168.20.84	Dynamic addressing
+192.168.20.85	Dynamic addressing
+192.168.20.86	Dynamic addressing
+192.168.20.87	Dynamic addressing
+192.168.20.88	Dynamic addressing
+192.168.20.89	Dynamic addressing
+192.168.20.90	Dynamic addressing
+192.168.20.91	Dynamic addressing
+192.168.20.92	Dynamic addressing
+192.168.20.93	Dynamic addressing
+192.168.20.94	Dynamic addressing
+192.168.20.95	Dynamic addressing
+192.168.20.96	Dynamic addressing
+192.168.20.97	Dynamic addressing
+192.168.20.98	Dynamic addressing
+192.168.20.99	Dynamic addressing
+192.168.20.100	Dynamic addressing
+192.168.20.101	Dynamic addressing
+192.168.20.102	Dynamic addressing
+192.168.20.103	Dynamic addressing
+192.168.20.104	Dynamic addressing
+192.168.20.105	Dynamic addressing
+192.168.20.106	Dynamic addressing
+192.168.20.107	Dynamic addressing
+192.168.20.108	Dynamic addressing
+192.168.20.109	Dynamic addressing
+192.168.20.110	Dynamic addressing
+192.168.20.111	Dynamic addressing
+192.168.20.112	Dynamic addressing
+192.168.20.113	Dynamic addressing
+192.168.20.114	Dynamic addressing
+192.168.20.115	Dynamic addressing
+192.168.20.116	Dynamic addressing
+192.168.20.117	Dynamic addressing
+192.168.20.118	Dynamic addressing
+192.168.20.119	Dynamic addressing
+192.168.20.120	Dynamic addressing
+192.168.20.121	Dynamic addressing
+192.168.20.122	Dynamic addressing
+192.168.20.123	Dynamic addressing
+192.168.20.124	Dynamic addressing
+192.168.20.125	Dynamic addressing
+192.168.20.126	Dynamic addressing
+192.168.20.127	Dynamic addressing
+192.168.20.128	Dynamic addressing
+192.168.20.129	Dynamic addressing
+192.168.20.130	Dynamic addressing
+192.168.20.131	Dynamic addressing
+192.168.20.132	Dynamic addressing
+192.168.20.133	Dynamic addressing
+192.168.20.134	Dynamic addressing
+192.168.20.135	Dynamic addressing
+192.168.20.136	Dynamic addressing
+192.168.20.137	Dynamic addressing
+192.168.20.138	Dynamic addressing
+192.168.20.139	Dynamic addressing
+192.168.20.140	Dynamic addressing
+192.168.20.141	Dynamic addressing
+192.168.20.142	Dynamic addressing
+192.168.20.143	Dynamic addressing
+192.168.20.144	Dynamic addressing
+192.168.20.145	Dynamic addressing
+192.168.20.146	Dynamic addressing
+192.168.20.147	Dynamic addressing
+192.168.20.148	Dynamic addressing
+192.168.20.149	Dynamic addressing
+192.168.20.150	Dynamic addressing
+192.168.20.151	Dynamic addressing
+192.168.20.152	Dynamic addressing
+192.168.20.153	Dynamic addressing
+192.168.20.154	Dynamic addressing
+192.168.20.155	Dynamic addressing
+192.168.20.156	Dynamic addressing
+192.168.20.157	Dynamic addressing
+192.168.20.158	Dynamic addressing
+192.168.20.159	Dynamic addressing
+192.168.20.160	Dynamic addressing
+192.168.20.161	Dynamic addressing
+192.168.20.162	Dynamic addressing
+192.168.20.163	Dynamic addressing
+192.168.20.164	Dynamic addressing
+192.168.20.165	Dynamic addressing
+192.168.20.166	Dynamic addressing
+192.168.20.167	Dynamic addressing
+192.168.20.168	Dynamic addressing
+192.168.20.169	Dynamic addressing
+192.168.20.170	Dynamic addressing
+192.168.20.171	Dynamic addressing
+192.168.20.172	Dynamic addressing
+192.168.20.173	Dynamic addressing
+192.168.20.174	Dynamic addressing
+192.168.20.175	Dynamic addressing
+192.168.20.176	Dynamic addressing
+192.168.20.177	Dynamic addressing
+192.168.20.178	Dynamic addressing
+192.168.20.179	Dynamic addressing
+192.168.20.180	Dynamic addressing
+192.168.20.181	Dynamic addressing
+192.168.20.182	Dynamic addressing
+192.168.20.183	Dynamic addressing
+192.168.20.184	Dynamic addressing
+192.168.20.185	Dynamic addressing
+192.168.20.186	Dynamic addressing
+192.168.20.187	Dynamic addressing
+192.168.20.188	Dynamic addressing
+192.168.20.189	Dynamic addressing
+192.168.20.190	Dynamic addressing
+192.168.20.191	Dynamic addressing
+192.168.20.192	Dynamic addressing
+192.168.20.193	Dynamic addressing
+192.168.20.194	Dynamic addressing
+192.168.20.195	Dynamic addressing
+192.168.20.196	Dynamic addressing
+192.168.20.197	Dynamic addressing
+192.168.20.198	Dynamic addressing
+192.168.20.199	Dynamic addressing
+192.168.20.200	Dynamic addressing
+192.168.20.201	Dynamic addressing
+192.168.20.202	Dynamic addressing
+192.168.20.203	Dynamic addressing
+192.168.20.204	Dynamic addressing
+192.168.20.205	Dynamic addressing
+192.168.20.206	Dynamic addressing
+192.168.20.207	Dynamic addressing
+192.168.20.208	Dynamic addressing
+192.168.20.209	Dynamic addressing
+192.168.20.210	Dynamic addressing
+192.168.20.211	Dynamic addressing
+192.168.20.212	Dynamic addressing
+192.168.20.213	Dynamic addressing
+192.168.20.214	Dynamic addressing
+192.168.20.215	Dynamic addressing
+192.168.20.216	Dynamic addressing
+192.168.20.217	Dynamic addressing
+192.168.20.218	Dynamic addressing
+192.168.20.219	Dynamic addressing
+192.168.20.220	Dynamic addressing
+192.168.20.221	Dynamic addressing
+192.168.20.222	Dynamic addressing
+192.168.20.223	Dynamic addressing
+192.168.20.224	Dynamic addressing
+192.168.20.225	Dynamic addressing
+192.168.20.226	Dynamic addressing
+192.168.20.227	Dynamic addressing
+192.168.20.228	Dynamic addressing
+192.168.20.229	Dynamic addressing
+192.168.20.230	Dynamic addressing
+192.168.20.231	Dynamic addressing
+192.168.20.232	Dynamic addressing
+192.168.20.233	Dynamic addressing
+192.168.20.234	Dynamic addressing
+192.168.20.235	Dynamic addressing
+192.168.20.236	Dynamic addressing
+192.168.20.237	Dynamic addressing
+192.168.20.238	Dynamic addressing
+192.168.20.239	Dynamic addressing
+192.168.20.240	Dynamic addressing
+192.168.20.241	Dynamic addressing
+192.168.20.242	Dynamic addressing
+192.168.20.243	Dynamic addressing
+192.168.20.244	Dynamic addressing
+192.168.20.245	Dynamic addressing
+192.168.20.246	Dynamic addressing
+192.168.20.247	Dynamic addressing
+192.168.20.248	Dynamic addressing
+192.168.20.249	Dynamic addressing
+192.168.20.250	Dynamic addressing
+192.168.20.251	Dynamic addressing
+192.168.20.252	Dynamic addressing
+192.168.20.253	Dynamic addressing
+192.168.20.254	Dynamic addressing

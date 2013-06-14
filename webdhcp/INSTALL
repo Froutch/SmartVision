@@ -1,0 +1,63 @@
+This program requires the following Perl Modules before it will work:
+
+* Crypt-Blowfish-2.06
+* Crypt-CBC-1.25
+* Crypt-CBCeasy-0.21
+* MD5-1.7
+ 
+This is how the files in this distro should layout:
+
+Server Side:
+-----------
+Webdhcp_Server.pm 
+INSTALL
+README
+init.webdhcpd
+webdhcp_server
+
+Client Side:
+-----------
+COPYRIGHT 
+INSTALL
+MANIFEST
+Webdhcp_Client.pm
+webdhcp_client.cgi 
+webdhcp_client.conf
+example_doc
+
+1) Run 'perl Makefile.PL'
+2) Edit 'Webdhcp_Client.pm' and 'webdhcp_server' so that their
+   "$encryptkey" values are the same. Also, checkout the 
+   region in 'Webdhcp_Client.pm', 'webdhcp_server', and 
+   'Webdhcp_Server.pm' that says you should edit them before
+   putting the program into production.
+3) Run 'make'
+4) Run 'make test'
+5) Run 'make install'
+
+Next question, is the DHCP server on the same machine as the
+Web server that the user(s) interface with? The answer to this
+question should be no because that would be potential security
+risk, however, if the answer is "yes" then
+
+6) ./install.bin server
+7) ./install.bin client
+
+----- OR -------
+
+If the answer was "no", then on the DHCP Server run:
+
+6) ./install.bin server
+
+And on the Web Server run:
+
+7) ./install.bin client
+
+That's It! Check the "install.log" for details of the installation. 
+The server could be started by running the "init.webdhcpd" script.
+Also, you note that the assumed location for perl is '/usr/bin/perl'.
+If this is not the case, then you should be able to modify the
+'#!/usr/bin/perl' line in each of the perl scripts.
+
+You could contact me at <mlewis@mailops.com> if you have any
+comments or suggestions.

@@ -1,0 +1,140 @@
+#!/bin/sh
+#
+# WebDHCP install script
+#
+id=`whoami`
+apache_cgi='/var/www/cgi-bin'
+d_installed='.d_installed'
+c_installed='.c_installed'
+logdir='/usr/local/webdhcp/var/'
+ins_log='install.log'
+webdhcpd_exe='webdhcp_server'
+webdhcpc_exe='webdhcp_client.cgi'
+webdhcpd_dir='/usr/local/webdhcp'
+webdhcpc_dir="${apache_cgi}/webdhcp"
+backupdir=`grep -w backupdir webdhcp_client.conf|awk -F'=' {'print $2'}|sed -e 's/\ //g' -e 's/\;//g' -e 's/\"//g'`
+
+if test "$id" != "root" ; then
+	echo "You must be root to install this program!"
+	exit 1;
+fi
+
+# Clean out install.log
+touch install.log
+echo > install.log
+
+case "$1" in
+'server')
+
+	if [ -r ${webdhcpd_dir}/${d_installed} ]; then
+		echo "The Server has already been installed!"
+		exit 1
+	fi
+	
+	# Create directory for the Server
+	if [ ! -d ${webdhcpd_dir} ];then
+		echo "Creating directory for the Server"
+		echo "Webdhcp Server put in [${webdhcpd_dir}]"
+		mkdir -p ${webdhcpd_dir}
+		echo "Created ${webdhcpd_dir}" > install.log
+	fi
+
+	# Create directory for the Log file
+	if [ ! -d ${logdir} ];then
+		echo "Creating directory for the Log file"
+		echo "Log directory created in [${logdir}]"
+		mkdir -p $logdir
+		echo "Created ${logdir}" >> install.log
+	fi
+
+	# Create backup directory for the DHCP config and lease files
+	if [ ! -d ${backupdir} ];then
+		echo "Creating directory for DHCP backups"
+		mkdir -p $backupdir
+		echo "Created ${backupdir}" >> install.log
+	fi
+
+	if [ ! -x ${webdhcpd_dir}/${webdhcpd_exe} ]; then
+		cp -f ${webdhcpd_exe} ${webdhcpd_dir}
+		echo "Copied ${webdhcpd_exe} to ${webdhcpd_dir}" >> install.log
+	fi
+
+	# Copy/Create All necessary files
+	touch ${webdhcpd_dir}/${d_installed}
+	cp -f README ${webdhcpd_dir}
+	cp -f INSTALL ${webdhcpd_dir}
+	echo "Copied README to ${webdhcpd_dir}" >> install.log
+	echo "Copied INSTALL to ${webdhcpd_dir}" >> install.log
+
+	# Install INIT Scripts
+	if [ -d /etc/init.d ]; then
+		echo "Installing init script into /etc/init.d"
+		cp -f init.webdhcpd /etc/init.d
+		cp -f init.webdhcpd /etc/rc2.d/S99webdhcpd
+	fi
+
+	if [ -d /etc/rc.d/init.d ]; then
+		echo "Installing init script into /etc/rc.d/init.d"
+		cp -f init.webdhcpd /etc/rc.d/init.d
+		cp -f init.webdhcpd /etc/rc.d/rc2.d/S99webdhcpd
+	fi
+		echo "Finished Server Installation!"
+		echo "Read ${ins_log} for details";
+
+	;;
+
+'client')
+	if [ -r ${webdhcpc_dir}/${c_installed} ]; then
+		echo "The Client has already been installed!"
+		exit 1
+	fi
+
+	echo "** Starting Client installation **"
+	echo
+	echo "Please enter the location of your apache cgi-bin directory [${apache_cgi}]: "
+	read ans
+	
+	if test -n "$ans"; then
+		apache_cgi="$ans"
+		webdhcpc_dir="${apache_cgi}/webdhcp"
+	fi
+
+	# Create directory for the Client
+	if [ ! -d ${webdhcpc_dir} ];then
+		echo "Creating directory for the Client in ${webdhcpc_dir}"
+		echo "\$webdhcpc_dir=${webdhcpc_dir}" > install.log
+		echo "Creating ${webdhcpc_dir}" >> install.log
+		mkdir -p ${webdhcpc_dir}
+	fi
+
+	if [ ! -x ${webdhcpc_dir}/${webdhcpc_exe} ]; then
+		cp -f ${webdhcpc_exe} ${webdhcpd_dir}
+		echo "Copied ${webdhcpc_exe} ${webdhcpc_dir}" >> install.log
+	fi
+
+	# Copy/Create All necessary files
+	touch ${webdhcpc_dir}/${c_installed}
+	cp -f  README ${webdhcpc_dir}
+	cp -f INSTALL ${webdhcpc_dir}
+	cp -f webdhcp_client.cgi ${webdhcpc_dir}
+	echo "==============================================================="
+	echo "INFO: Setting ${webdhcpc_dir}/webdhcp_client.cgi SUID -root-."
+	echo "      Read INSTALL file for details."
+	echo "==============================================================="
+	chmod +s ${webdhcpc_dir}/webdhcp_client.cgi
+	cp -f webdhcp_client.conf ${webdhcpc_dir}
+	echo "Copied README ${webdhcpc_dir}" >> install.log
+	echo "Copied INSTALL ${webdhcpc_dir}" >> install.log
+	echo "Copied webdhcp_client.cgi ${webdhcpc_dir}" >> install.log
+	echo "Copied webdhcp_client.conf ${webdhcpc_dir}" >> install.log
+	echo "Finished Client Installation!"
+	echo "Read ${ins_log} for details. Please don't edit or remove this file";
+
+	;;
+
+*)
+	echo "Usage: $0 { server | client }"
+	exit 1
+	;;
+esac
+exit 0

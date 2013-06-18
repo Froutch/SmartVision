@@ -1,0 +1,129 @@
+#! /usr/bin/perl
+
+use DBI;
+
+$mysql_host			= "localhost";
+$mysql_username			= "root";
+$mysql_password			= "";
+$mysql_database			= "phpcourier";
+$homedir			= "/home/vmail";
+
+#======================================================================
+# Check args
+if ( scalar (@ARGV) != 1 )
+{
+	print "\nUsage: pcload <loadfile>\n";
+	print "pcload --help for instructions\n\n";
+	exit ();
+}
+
+if ( $ARGV[0] eq "--help" )
+{
+	show_help ();
+	exit ();
+}
+
+#======================================================================
+# Connect to the database
+$source = "DBI:mysql:$mysql_database:$mysql_host";
+$dbh = DBI->connect ($source, $mysql_username, $mysql_password) 
+	or die EBI::errstr;
+
+
+#======================================================================
+# Open the load file
+open LOAD, "$ARGV[0]" or die "Can't open $ARGV[0]: $!";
+@lines = <LOAD>;
+close LOAD;
+
+# Now process the lines
+foreach $line ( @lines )
+{
+	chomp ($line);
+	($username,$password,$home,$full,$uid,$gid,$quota) = split /\t/,$line;
+	($name,$domain) = split /@/, $username;
+
+	load ();
+}
+
+$dbh->disconnect ();
+
+#======================================================================
+sub load
+{
+	# Does the domain exist?
+	$sql = "SELECT DomainId FROM Domains Where DomainName = '$domain';";
+	#print "$sql\n\n";
+	$sth = $dbh->prepare ($sql);	
+	$sth->execute ();
+	($id) = $sth->fetchrow_array();
+        $sth->finish();
+	if ( $id eq "" ) {
+		$domainhome = "$homedir/$domain";
+		$sql = "INSERT INTO Domains (DomainName,Uid,Gid,Directory,Quota,MailboxLimit,AliasLimit,EditBy,EditWhen) VALUES ('$domain','60','60','$domainhome','','1','5','1',NOW())";
+		#print "$sql\n\n";
+		$sth = $dbh->prepare ($sql);
+		$sth->execute ();
+		
+
+	$sql = "SELECT DomainId FROM Domains Where DomainName = '$domain'";
+	#print "$sql\n\n";
+	$sth = $dbh->prepare ($sql);	
+	$sth->execute ();
+	($id) = $sth->fetchrow_array();
+        $sth->finish();
+		}
+	
+	# Make the account
+	$sql =  "INSERT INTO Accounts ";
+	$sql .=  "(DomainId,AccountName,CryptPass,ClearPass,FullName,AccountType,Active,EditBy,EditWhen,MailboxLimit) VALUES ";
+	$sql .=  "($id, '$username', PASSWORD('$password'), '$password', '$full','U','true', 1, NOW(), 1)";
+
+	#print "$sql\n\n";
+	$sth = $dbh->prepare($sql);	
+	$sth->execute();
+        $sth->finish();
+
+	$sql = "SELECT AccountId FROM Accounts WHERE AccountName = '$username'";
+	
+	#print "$sql\n\n";
+	$sth = $dbh->prepare ($sql);
+	$sth->execute ();
+	($accountid) = $sth->fetchrow_array();
+        $sth->finish();
+
+	#Make the mailbox
+	$sql = "INSERT INTO Mail ";
+	$sql .=  "(AccountId,DomainId,MailboxName,ClearPass,UserName,FullName,Uid,Gid,Quota,Home,AliasLimit,EditBy,EditWhen)";
+	$sql .=  "VALUES ";
+	$sql .=  "('$accountid','$id','$name','$password', '$username', '$full', '60', '60', '', '$home', '5', 1, NOW())";
+
+	print "$sql\n\n";
+	$sth = $dbh->prepare ($sql);	
+	$sth->execute ();
+        $sth->finish();
+}
+
+#======================================================================
+sub show_help
+{
+print <<END;
+
+The load file is a comma delimited file containing the following
+fields:
+	
+username   full email address, such as name@domain.com
+password   unencrypted password
+home       path to the user's home directory
+uid        user id that the mail system uses when dealing with this user
+gid        group id
+quota	   quota
+
+Sample record:
+fred@somewhere.com,mysecretpw,/home/domains/somewhere/fred,60,60,10
+
+The quota can be blank
+wilma@somewhere.com,mypw,/home/domains/somewhere/fred,60,60,
+
+END
+}

@@ -1,0 +1,20 @@
+phpCourier Web Administration
+
+Version 1.5
+
+Minor bug fixes
+
+Version 1.4
+
+Fixed minor bugs in extract script
+
+accounts.php
+Added new icons for shortcut to delete and mailbox list
+Sorted the domains alphabetically
+
+delete.php:
+Added a check for deleting the full $virthome folder
+
+
+editmbx.php:
+Added a check for deleting the full $virthome folder

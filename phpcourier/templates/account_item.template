@@ -1,0 +1,51 @@
+<?php
+		// ACCOUNT ITEM TEMPLATE FILE
+		// This template is called for each account that is shown.
+		//
+		// VARIABLES:
+		//	$maillink       - The url to edit the mailboxes for this account
+		//	$link       - The url to edit this account
+		//	$name       - The user name
+		//	$type       - The user type
+		//	$fullname	- The full name on the account
+		//	$pwd		- Unencrypted password
+		//	$editby	    - Account id of last to update
+		//	$editwheb   - The create/edit date
+		//	$active		- Account status - true or false
+		//	$comapany	- The CompanName field
+		//	$phone		- The PhoneNumber field
+		//	$size		- Size in MB of Maildir folder 
+		//	$lastaccess	- Last time Maildir was accessed 
+		//
+?>
+<tr onmouseover="this.style.backgroundColor='#9999CC';" 
+    onmouseout="this.style.backgroundColor='#FFFFCC';" 
+    onclick="this.style.backgroundColor='#FFFFCC';"
+>
+
+<td>
+
+<?php
+	if ( $active == "true" ) { echo "<a href=\"$link\"><IMG src=\"images/active.gif\" border=\"0\"></a>"; }
+	else                     { echo "<a href=\"$link>\"><IMG src=\"images/inactive.gif\" border=\"0\"></a>"; }
+?>
+</td>
+
+<td><a href="<?=$deletelink?>"><IMG src="images/trash.gif" border="0"></a></td>
+<td><a href="<?=$maillink?>"><IMG src="images/env.gif" border="0"></a></td>
+<td><a href="<?=$link?>"><IMG src="images/edit.gif" border="0"></a></td>
+
+
+<td><span class="<?php echo $type == 'U' ? "useracct" : "adminacct";?>"><?=$name?></span></td>
+<td><?=$pwd?></td>
+<td><?=$fullname?></td>
+<td><?=$company?></td>
+<td><?=$phone?></td>
+
+<?php
+	if ($showsize == "true") { echo "<td> $size </td> <td> $lastaccess </td>"; }
+?>
+
+<td><?=$editby?></td>
+<td><?=$editwhen?></td>
+</tr>

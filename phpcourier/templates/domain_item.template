@@ -1,0 +1,29 @@
+<?php
+		// DOMAIN ITEM TEMPLATE FILE
+		//
+		// VARIABLES:
+		//	$link   - The url to edit this domain
+		//	$name	- The domain name
+		//	$uid	- Unix user id
+		//	$gid	- Unix group id
+		//	$home	- Home directory for this domain
+		//	$quota	- Quota
+		//	$mlimit	- Mailbox limit
+		//	$alimit	- Alias limit
+		//
+
+?>
+
+<tr onmouseover="this.style.backgroundColor='#CC9999';"
+    onmouseout="this.style.backgroundColor='#FFFFCC';"
+    onclick="this.style.backgroundColor='#FFFFCC';"
+>
+<td><a href="<?=$link?>">Edit</a></td>
+<td><?=$name?></td>
+<td><?=$uid?></td>
+<td><?=$gid?></td>
+<td><?=$home?></td>
+<td><?=$quota?></td>
+<td><?=$mlimit?></td>
+<td><?=$alimit?></td>
+</tr>

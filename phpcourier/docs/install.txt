@@ -1,0 +1,92 @@
+INSTALLATION INSTRUCTIONS - phpCourier
+
+Requirements:
+	Apache w/PHP support
+	MySQL Server
+	php-MySQL package loaded
+
+GETTING STARTED
+
+1) This project requires a MySQL server installed. (Developed on MySQL version
+   3.23.58).  You must have MySQL installed and running.
+
+Example:
+You can use the RedHat up2date application to install the packages you need.
+	up2date -u mysql-server mysql php-mysql
+   
+2.) Relocate the entire phpCourier folder to a directory that is 
+    available to Apache.  You might choose to make a virtual host for
+    phpcourier.  
+
+Example:
+	Edit the httpd.conf file and add the following section.  Make
+	sure that you change the domain name, IP Address, and directory 
+	path where appropriate.
+
+<VirtualHost 10.1.1.1:80>
+        ServerAdmin webmaster@domainname.com
+        DocumentRoot /var/www/html/phpcourier
+        ServerName phpcourier.domainname.com
+        ErrorLog /var/log/httpd/phpcourier.domainname.com-error-log
+        CustomLog /var/log/httpd/phpcourier.domainname.com common
+        <Directory "/var/www/html/phpcourier">
+            Options Includes FollowSymLinks
+            AllowOverride None
+            Order allow,deny
+            Allow from all
+       </Directory>
+</VirtualHost>
+
+3) Create a database in MySQL that will hold the tables. Also, create
+   a username that the system will use to access that database. If the
+   database isn't named "phpcourier" you're going to have to change
+   the sql scripts for installation.
+
+Example:
+	mysql> create database phpcourier;
+
+4) Edit the sql/remake.sql file.  Change the root password from
+   "rootpw" to something more appropriate.
+   
+5) Login to MySQL and source sql/remake.sql. This will create empty
+   tables used by the system.  This will create the initial root account
+   as well. 
+
+Example:
+	mysql> source sql/remake.sql;
+   
+6) Edit the globals.inc file. Change the mysql login information, and
+   the $mdm_cmd, which describes the full path to Courier's
+   maildirmake command. Other options are also available here.
+   
+7) Determine where the mail will be delivered. phpCourier uses the 
+   /homedir/domain format for delivering mail.
+
+Example:
+	Create a home directory for storing mail.  
+		prompt$ mkdir /home/vmail
+
+	Change the permissions and ownership so that apache
+	can create folders.
+		chmod 775 /home/vmail
+		chown apache:vmail /home/vmail
+   
+8) Set up the cron job to run util/extract. This is a perl script
+   that checks the time of the last change to the set of aliases
+   and domains. If a change has been made since the last extraction,
+   it does another extraction. 
+
+   You will need to edit util/extract to change the database and paths
+   if your courier install uses something other than /etc/courier to
+   store configuration files.
+
+Example:
+	Add the following line to /etc/crontab
+
+0-59/15 * * * * root /var/www/html/phpcourier/util/extract
+
+9)  Edit /etc/group and add the apache user to the vmail group so that
+    apache can modify the files owned by vmail for mail delivery.
+
+Enjoy!
+phpCourier Development Team

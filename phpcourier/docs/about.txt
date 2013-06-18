@@ -1,0 +1,75 @@
+PHP COURIER NOTES
+
+This file describes php courier concepts at a very high level.
+
+For any detail, refer to the code.
+
+phpCourier manages domains, accounts, mailboxes, and aliases.
+
+Ultimately, all relevant information is stored in the Mail table,
+which Courier can read. In addition to updating the Mail table, the
+system will create domain directories and will create mailbox
+directories within the domain directories.
+
+The general idea is that domains contain accounts, accounts define
+mailboxes, and mailboxes have some number of aliases.
+
+There are three types of accounts:
+
+1) Master administrator. The root user. This is the only user type
+   that can create/edit/delete domains. The master administrator also
+   is the only type that can create administrator accounts. It can
+   also create user accounts and edit mailboxes.
+   
+2) Administrators are assigned to one or more domains and can create
+   user accounts and edit mailboxes within those domains.
+
+3) User accounts can be associated with one or more mailboxes,
+   depending on the mailbox limit set up for a domain.
+   
+The system is designed to work in both big domain and little domain
+paradigms. In the little domain paradigm, you can create a domain with
+a mailbox limit of one per account. The mailbox and account can both
+be given the same name and password. Thus every account sees one and
+only one mailbox, and the name and password to login are the same used
+to fetch mail from the system.
+
+In big domain mode, account names can be different from mailbox
+names. Each user can create and administor as many mailboxes as
+defined by the domain limits. (Administrators ignore the limits and
+can make as many mailboxes and aliases as they want.)
+
+Account names must be unique system wide, but mailbox names must only
+be unique within a domain. This causes problems when the system is
+used in the little domain paradigm. It is not possible to have account
+charlie with mailbox charlie@www.charlie.com and also have another
+account charlie with mailbox charlie@www.other.com.
+
+Because of this limit, the big domain paradigm is preferable.  Each
+user of the system gets a unique name, but the mailbox will have a
+different name.
+
+The administrators have access to the account list for a domain.  The
+account list page is modal. That is, it works with only one domain at
+a time. The "create a new account" link always creates an account
+within the currently selected domain. For administrators that are
+associated with only one domain, this is not a problem. However, for
+the root account, or for multiple domain administrators, be careful to
+always update the display before creating a new account.
+
+The root account can view either administrators or users, and defaults
+to viewing administrators.
+
+When a new account is created you are automatically taken to a create
+mailbox form to make the first mailbox for the account. The form
+offers the account name and password of the mailbox to be the same as
+the name and password just entered for the account. You can change the
+mailbox name and password, or you can leave the screen without
+submitting any mailbox.
+
+Mail directories are always stored as follows. Within the domain's
+home directory, a directory that matches the mailbox name will be
+created.  Within this directory the Maildir directory will be created
+for Courier to use. A domain's home directory can be anywhere that the
+web server can see.
+

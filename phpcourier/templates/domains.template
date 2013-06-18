@@ -1,0 +1,53 @@
+<?php
+		// DOMAIN LIST TEMPLATE FILE
+		// (See domain_item.template for domain list format)
+		//
+		// VARIABLES:
+		//
+
+include ("template_functions.php");
+
+open_page ("Manage Domains");
+$nav = nav_menu ();
+open_content ("Manage Domains", $nav);
+
+// Call the  function to draw the account form.
+echo "<table><tr><td>";
+echo "<div class=\"input\">";
+domain_form ();
+echo "</div>";
+
+// table cell for the create button
+echo "</td><td valign = top>";
+echo "<table class=\"createtbl\"><tr><td>";
+echo "<a class=create href=\"editdomain.php?domain=new\">Create New Domain</a>";
+echo "</td></tr></table>";
+
+echo "</td></tr></table>";
+
+?>
+
+<hr>
+
+<table class="domaintable">
+<tr><th> </th>
+	<th>Domain Name</th>
+	<th>UID</th>
+	<th>GID</th>
+	<th>Home Directory</th>
+	<th>Quota</th>
+	<th>Mailbox Limit</th>
+	<th>Alias Limit</th>
+</tr>
+
+<?php
+	// Call the function to draw the domain list
+	// This calls the domain_item.template for
+	// each domain.
+	domain_list ();
+
+	echo "</table>";
+
+	close_content ();
+	close_page ();
+?>

@@ -1,0 +1,34 @@
+<?php
+		// EDIT MAILBOX TEMPLATE FILE
+		//
+		// VARIABLES:
+		//  $action - create or edit
+		//	$accountname - account name that owns this mailbox
+		//  $accountid   - id of account
+
+include ("template_functions.php");
+$extra["Edit Account"] = "editaccount.php?accountid=$accountid";
+$extra['Show Mailbox List'] = "mailboxes.php?accountid=$accountid";
+$nav = nav_menu ();
+$top = top_menu ($extra);
+
+if ( $action == "create" )
+	{
+	open_page ("Create Mailbox");
+	open_content ("Create New Mailbox: $accountname", $nav, $top);
+	}
+else
+	{
+	open_page ("Edit Mailbox");
+	open_content ("Edit Mailbox: $accountname", $nav, $top);
+	}
+
+// Call the function to draw the form
+echo "<div class=\"input\">";
+mailbox_edit_form ();
+echo "</div>";
+
+close_content ();
+close_page ();
+
+?>

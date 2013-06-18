@@ -1,0 +1,36 @@
+<?php
+		// ACCOUNT PAGE NAVIGATION TEMPLATE FILE
+		//
+		// VARIABLES:
+		//	$numpages	- Number of pages
+		//	$first		- Number of first row displayed
+		//	$last		- Number of last row displayed
+		//	$total		- Total number of rows
+		//	$curpage	- This page
+		//	$pages		- Array of page buttons. The array has keys from 1 to $num_pages
+		//			 	  plus two special keys, 'next' and 'prev' 
+		//
+
+	if ( $total == 0 )
+		{
+		echo "No accounts found";
+		}
+	else
+		{
+		echo "<table class=\"pages\" width=\"100%\"><tr>";
+
+		echo "<td width=\"50\">$pages[prev]</td>";
+		echo "<td width=\"50\">$pages[next]</td>\n";
+
+		echo "<td>Page $curpage: $first-$last of $total / Go to page : ";
+		for ( $p = 1; $p <= $numpages; $p++ )
+			{
+			echo "$pages[$p] ";
+			}
+		echo "</td>";
+
+		echo "</tr></table>\n";
+		}
+?>
+
+

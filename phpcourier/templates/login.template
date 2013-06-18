@@ -1,0 +1,20 @@
+<?php
+		// LOGIN TEMPLATE FILE
+		//
+		// VARIABLES:
+		//	$login_msg - a short note that should appear above the form
+		//
+
+include ("template_functions.php");
+
+open_page ("Login");
+open_content ("Welcome to the phpCourier mail administration system.");
+echo "<span class=\"heading\">$login_msg</span><br>";
+
+echo "<div class=\"input\">";
+login_form ();
+echo "</div>";
+
+close_content ();
+close_page ();
+?>

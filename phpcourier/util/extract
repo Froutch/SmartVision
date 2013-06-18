@@ -1,0 +1,111 @@
+#! /usr/bin/perl
+use DBI;
+$force = $ARGV[0];
+$pathtocourier = "/usr/lib/courier/share/";
+$pathtoalias = "/etc/courier/aliases/phpcourier.alias";
+$pathtodomains = "/etc/courier/hosteddomains/webadmin";
+$pathtoacceptmail = "/etc/courier/esmtpacceptmailfor.dir/webadmin";
+$pathtolocaldomains = "/etc/courier/locals";
+
+$mysql_host			= "creakid.org";
+$mysql_username		= "root";
+$mysql_password		= "pisvs4";
+$mysql_database		= "phpcourier";
+
+$source = "DBI:mysql:$mysql_database:$mysql_host";
+$dbh = DBI->connect ($source, $mysql_username, $mysql_password) 
+	or die EBI::errstr;
+
+$format = "%Y%m%d%H%i%s";
+
+$sth = $dbh->prepare ("SELECT DATE_FORMAT(AliasExtractTime,'$format'), DATE_FORMAT(AliasUpdateTime,'$format'), DATE_FORMAT(DomainExtractTime,'$format'), DATE_FORMAT(DomainUpdateTime,'$format') FROM UpdateTime");
+
+$sth->execute ();
+
+($extract, $update, $dextract, $dupdate) = $sth->fetchrow_array();
+$sth->finish();
+
+if (($extract <= $update ) || ($force eq "-f")) {
+	&AliasExtract;
+	system ("$pathtocourier/makealiases");
+}
+
+if (($dextract <= $dupdate ) || ($force eq "-f")) {
+	&DomainExtract;
+	system ("$pathtocourier/makehosteddomains");
+	system ("$pathtocourier/makeacceptmailfor");
+}
+
+$dbh->disconnect();
+
+exit;
+
+sub AliasExtract {
+
+open (OUT, ">$pathtoalias") || die "Unable to open $pathtoalias";
+
+# Make the query to pull out the alias names
+$query =
+	"SELECT A.Alias, M.MailboxName, D.DomainName " .
+	"FROM Aliases AS A, Mail as M, Domains as D " .
+	"WHERE A.MailboxId = M.MailboxId " .
+	"AND   A.DomainId  = D.DomainId";
+
+$sth = $dbh->prepare ($query);
+$sth->execute ();
+
+while ( ($alias, $mbx, $domain) = $sth->fetchrow_array () )
+{
+	print OUT "$alias\@$domain: $mbx\@$domain\n\n";
+}
+
+# Now pull out all the forwarding addresses from the Forwards table
+$query =
+	"SELECT FromAddress, ToAddress " .
+	"FROM Forwards";
+$sth = $dbh->prepare ($query);
+$sth->execute ();
+
+while ( ($from, $to) = $sth->fetchrow_array () )
+{
+	print OUT "$from: $to\n\n";
+}
+
+close OUT;
+
+# Now update the time
+$sth = $dbh->prepare ("UPDATE UpdateTime SET AliasExtractTime = NOW()");
+$sth->execute ();
+$sth->finish ();
+
+}
+
+sub DomainExtract {
+# Make the query to pull out the alias names
+$query = "SELECT DomainName, PrimaryDomain FROM Domains";
+
+$sth = $dbh->prepare ($query);
+$sth->execute ();
+
+open (OUT, ">$pathtodomains") || die "Unable to open $pathtodomains";
+open (OUT2, ">$pathtoacceptmail") || die "Unable to open $pathtoacceptmail";
+open (LOCAL, ">$pathtolocaldomains") || die "Unable to open $pathtolocaldomains";
+
+while ( ($domain, $primary) = $sth->fetchrow_array () ) {
+	
+	if ($primary eq "true") { print LOCAL "$domain\n"; }
+	else { print OUT "$domain\n"; }
+
+	print OUT2 "$domain\n";
+}
+close OUT;
+close OUT2;
+close LOCAL;
+
+# Now update the time
+$sth = $dbh->prepare ("UPDATE UpdateTime SET DomainExtractTime = NOW()");
+
+$sth->execute ();
+$sth->finish ();
+
+}

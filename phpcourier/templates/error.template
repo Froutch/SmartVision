@@ -1,0 +1,19 @@
+<?php
+		// ERROR PAGE TEMPLATE FILE
+		//
+		// VARIABLES:
+		//	$error_msg
+		//
+
+include ("template_functions.php");
+
+open_page ("ERROR");
+$nav = nav_menu ();
+open_content ("-- Error -- ", $nav);
+
+echo "<span class=\"error\">$error_msg</span>";
+
+close_content ();
+close_page ();
+
+?>

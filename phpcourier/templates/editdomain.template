@@ -1,0 +1,30 @@
+<?php
+		// EDIT DOMAIN TEMPLATE FILE
+		//
+		// VARIABLES:
+		//	$action = edit or create
+
+include ("template_functions.php");
+
+$nav = nav_menu ();
+if ( $action == "edit" )
+{
+open_page ("Edit Domain");
+open_content ("Edit a domain", $nav);
+}
+else
+{
+open_page ("Create Domain");
+open_content ("Create a new domain", $nav);
+}
+
+
+// Call the function to draw the form
+echo "<div class=\"input\">";
+domain_edit_form ();
+echo "</div>";
+
+close_content ();
+close_page ();
+
+?>

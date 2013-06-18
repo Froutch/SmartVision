@@ -1,0 +1,41 @@
+<?php
+		// EDIT ACCOUNT TEMPLATE FILE
+		//
+		// VARIABLES:
+		//	$accountname - Name of account being edited
+		//  $accountid   - Account id of account being edited
+		//	$accounttype - Account type 'U' for user / 'A' for administrator
+		//	$domainid	 - Domain in which account exits or is being created
+		//	$domainname	 - Name of the domain
+		//	$action - create or edit
+
+include ("template_functions.php");
+if ( $accountid != 0 && $accounttype == 'U' )
+	{
+	$extra["Edit Account"] = "editaccount.php?accountid=$accountid";
+	$extra["Show Mailbox List"] = "mailboxes.php?accountid=$accountid";
+	}
+$nav = nav_menu ();
+$top = top_menu ($extra);
+
+if ( $action == "create" )
+	{
+	open_page ("Create a new account");
+	open_content ("Create New Account: $domainname", $nav, $top);
+	}
+else
+	{
+	open_page ("Edit Account: $accountname");
+	open_content ("Edit Account: $accountname", $nav, $top);
+	}
+
+
+// Call the function to draw the form
+echo "<div class=\"input\">";
+account_edit_form ();
+echo "</div>";
+
+close_content ();
+close_page ();
+
+?>

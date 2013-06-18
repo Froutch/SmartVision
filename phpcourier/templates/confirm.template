@@ -1,0 +1,19 @@
+<?php
+		// CONFIRM DELETE PAGE TEMPLATE FILE
+		//
+		// VARIABLES:
+		//	$title, $text
+		//
+
+include ("template_functions.php");
+
+open_page ("Confirm delete");
+$nav = nav_menu ();
+open_content ($title, $nav);
+
+echo "<br><br><span class=\"confirm\">$text</span>";
+
+close_content ();
+close_page ();
+
+?>

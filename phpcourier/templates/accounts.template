@@ -1,0 +1,76 @@
+<?php
+		// ACCOUNT LIST TEMPLATE FILE
+		//
+		// VARIABLES:
+		//	$domain - Name of the currently selected domain
+
+include ("template_functions.php");
+
+open_page ("Manage Accounts - $domain");
+$nav = nav_menu ();
+open_content ("Manage Accounts - $domain", $nav);
+
+
+echo "<table><tr>";
+
+echo "<td><div class=\"input\">";
+account_form ();
+echo "</div></td>";
+
+// Table cell for the create button
+echo "<td valign = top>";
+echo "<table class=\"createtbl\"><tr><td>";
+echo "<a class=create href=\"editaccount.php?accountid=new&domainid=$domainid\">";
+echo "Create Account In<BR>$domain";
+echo "</a>";
+echo "</td></tr></table>";
+echo "</td>";
+
+echo "</tr></table>";
+
+account_abc ();
+
+?>
+
+
+<hr>
+
+<span class="domain"><?=$domain?></span>
+
+<table class="accttable">
+
+<tr><td class="pagerow" colspan="14">
+<?php
+	// Call the function to draw the page navigation buttons
+	account_pages ();
+?>
+</td></tr>
+
+<tr><th> </th>
+<th> </th>
+<th> </th>
+	<th></th>
+    <th>Account Name</th>
+	<th>Password</th>
+	<th>Full Name</th>
+	<th>Company</th>
+	<th>Phone Number</th>
+
+<?php
+	if ($showsize == "true") { echo "<th>Size</th> <th>Last Access</th> "; }
+?>
+    <th>Edit By</th>
+    <th>Edit Date</th>
+</tr>
+
+<?php
+	// Call the function to draw the account list.
+	// This calls the account_item.template for each
+	// account to be shown
+	account_list ();
+
+	echo "</table>";	
+
+	close_content ();
+	close_page ();
+?>

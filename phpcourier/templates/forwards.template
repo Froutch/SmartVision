@@ -1,0 +1,39 @@
+<?php
+		// FORWARD ADDRESS LIST LIST TEMPLATE FILE
+		//
+		// VARIABLES:
+		//
+
+include ("template_functions.php");
+
+open_page ("Forwarding Addresses");
+$nav = nav_menu ();
+open_content ("Forwarding Addresses", $nav);
+
+// Call the  function to draw the form.
+echo "<div class=\"input\">";
+forward_form ();
+echo "</div>";
+echo "<div class=\"abc_lable\" style=\"text-align:right;\">";
+echo "Records Displayed: $query_count";
+echo "</div>";
+?>
+
+<hr>
+
+<table class="domaintable">
+<tr><th> </th>
+	<th>From Address</th>
+	<th>To Address</th>
+</tr>
+
+<?php
+	// Call the forward_list function. This will call
+	// the forward_item.template
+	forward_list ();
+
+	echo "</table>";
+
+	close_content ();
+	close_page ();
+?>

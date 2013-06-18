@@ -1,0 +1,44 @@
+<?php
+		// SHOW LOG FILE TEMPLATE FILE
+		//
+		// VARIABLES:
+		//	$type - type of log to view
+		//
+
+include ("template_functions.php");
+
+open_page ("View  Logs");
+$nav = nav_menu ();
+
+$t['View Mail Log'] = "logs.php?type=1";
+$t['POP3 Log'] = "logs.php?type=2";
+$t['Error Log'] = "logs.php?type=3";
+$top = top_menu ($t);
+open_content ("View Logs", $nav, $top);
+
+echo "<div class=\"log\">";
+echo "<br><br>";
+switch ( $type )
+	{
+	case 1: 
+		show_log1(); 
+		break;
+
+	case 2: 
+		show_log2(); 
+		break;
+
+	case 3: 
+		show_log3(); 
+		break;
+
+	default: 
+		echo "<span class=\"error\">Log type $type unknown.</span>";
+		break;
+
+	}
+echo "</div>";
+
+?>
+
+

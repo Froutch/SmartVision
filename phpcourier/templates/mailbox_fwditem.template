@@ -1,0 +1,19 @@
+<?php
+		// MAILBOX ITEM TEMPLATE FILE
+		//
+		// VARIABLES:
+		//	$link	- The url to edit this mailbox
+		//	$from	- The From address
+		//  $to		- The To Address
+		//
+?>
+
+<tr onmouseover="this.style.backgroundColor='#99CC99';" 
+    onmouseout="this.style.backgroundColor='#FFFFCC';" 
+    onclick="this.style.backgroundColor='#FFFFCC';">
+
+<td><a href="<?=$link?>">Edit</a></td>
+<td><?=$from?></td>
+<td><?=$to?></td>
+</tr>
+

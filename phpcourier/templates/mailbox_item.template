@@ -1,0 +1,35 @@
+<?php
+		// MAILBOX ITEM TEMPLATE FILE
+		//
+		// VARIABLES:
+		//	$link - The url to edit this mailbox
+		//	$name - The mailbox name
+		//  $domain - The domain name
+		//	$aliases - Array of alias names for the mailbox
+		//
+?>
+
+<tr onmouseover="this.style.backgroundColor='#99CC99';" 
+    onmouseout="this.style.backgroundColor='#FFFFCC';" 
+    onclick="this.style.backgroundColor='#FFFFCC';">
+
+<td><a href="<?=$link?>">Edit</a></td>
+
+<td><span class="mbxname"><?=$name?>@<?=$domain?></span>
+
+<?php
+	if ( count ($aliases) > 0 )
+		{
+		echo "<br><span style=\"font-weight:bold\" class=\"aliasname\">Aliases</span>";
+		foreach ($aliases as $a)
+			{
+			echo "<br><span class=\"aliasname\">$a@$domain</span>";
+			}
+		}
+?>
+</td>
+
+<td><?=$fullname?></td>
+<td><?=$clearpass?></td>
+</tr>
+

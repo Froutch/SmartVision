@@ -1,0 +1,62 @@
+<?php
+		// MAIILBOX LIST TEMPLATE FILE
+		//
+		// VARIABLES:
+		//  $accountname - Name of the account
+		//	$accounttype - Account type 'U' for user / 'A' for administrator
+		//  $accountid   - Id number for the account
+		//	$mbx_rows	 - Number of mailboxes
+		//  $fwd_rows	 - Number of forwards
+		//
+
+include ("template_functions.php");
+
+open_page ("Mailboxes: $accountname");
+$extra["Edit Account"] = "editaccount.php?accountid=$accountid";
+$extra['Show Mailbox List'] = "mailboxes.php?accountid=$accountid";
+$nav = nav_menu ();
+$top = top_menu ($extra);
+
+open_content ("Edit Mailboxes: $accountname", $nav, $top);
+
+// Call the function to draw the mailbox select form
+mailbox_form ();
+
+if ( $mbx_rows != 0 )
+	{
+	echo "<br><br>";
+	echo "<span class=\"mbxheading\">Mailboxes For $accountname</span>";
+	echo "<table class=\"mbxtable\">";
+	echo "<tr class=\"mbxhead\"><th> </th>";
+	echo "<th>Mailbox / Alias List</th>";
+	echo "<th>FullName</th>";
+	echo "<th>Password</th>";
+	echo "</tr>";
+
+	// Call the function to draw the list
+	// of mailboxes. This calls mailbox_item.template
+	// for each mailbox.
+	mailbox_list ();
+	echo "</table>";
+	}
+
+if ( $fwd_rows != 0 )
+	{
+	echo "<br><br>";
+	echo "<hr>";
+	echo "<span class=\"mbxheading\">Forwards For $accountname</span>";
+	echo "<table class=\"mbxtable\">";
+	echo "<tr class=\"mbxhead\"><th> </th>";
+	echo "<th>From Address</th>";
+	echo "<th>To Address</th>";
+	echo "</tr>";
+
+	// Call the functin to draw the forward list
+	mailbox_forwards ();
+	echo "</table>";
+	}
+
+// Close the page
+close_content ();
+close_page ();
+?>

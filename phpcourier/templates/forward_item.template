@@ -1,0 +1,18 @@
+<?php
+		// DOMAIN ITEM TEMPLATE FILE
+		//
+		// VARIABLES:
+		//	$link   - The url to edit this domain
+		//  $from   - From address
+		//  $to		- To address
+
+?>
+
+<tr onmouseover="this.style.backgroundColor='#CC9999';"
+    onmouseout="this.style.backgroundColor='#FFFFCC';"
+    onclick="this.style.backgroundColor='#FFFFCC';"
+>
+<td><a href="<?=$link?>">Edit</a></td>
+<td><?=$from?></td>
+<td><?=$to?></td>
+</tr>

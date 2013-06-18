@@ -1,0 +1,18 @@
+<?php
+		// LOGOUT TEMPLATE FILE
+		//
+		// VARIABLES:
+		//	$logout_msg;
+		//
+
+include ("template_functions.php");
+
+open_page ("Logout");
+open_content ($logout_msg);
+
+echo "<a href=\"index.php\">LOGIN</a>";
+
+close_content ();
+close_page ();
+
+?>

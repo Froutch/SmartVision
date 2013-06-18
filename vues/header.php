@@ -34,7 +34,7 @@ $query = 'SELECT * FROM machines';
 $result = mysql_query($query);
 while($data = mysql_fetch_array($result))
 {
-		echo "<li><a href=''>".$data['ip']."</a></li>";
+		echo "<li><a href='index.php?page=config&host=".$data['id']."'>".$data['ip']."</a></li>";
 }
 ?>
 	</ul>

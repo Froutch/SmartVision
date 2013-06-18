@@ -2,11 +2,11 @@
 
 print "OS : ";
 system "uname -o";
-print "Host : ";
+print "<br>Host : ";
 system "uname -n";
-print "Kernel : ";
+print "<br>Kernel : ";
 system "uname -r";
-print "Architecture : ";
+print "<br>Architecture : ";
 system "uname -m";
-print "Processor : ";
+print "<br>Processor : ";
 system "uname -p";

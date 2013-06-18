@@ -3,7 +3,7 @@ if ($host == 'localhost')
 {
 
 ?>
-
+<form>
 <center><h2>Services on <?php echo $_GET['host']; ?></h2></center>
 <?php
 
@@ -16,6 +16,7 @@ if ($host == 'localhost')
 
 }
 ?>
+</form>
 
 
 

@@ -106,7 +106,7 @@ if (defined $os_tmp[0] && length $os_tmp[0] > 0)
 }
 else
 {
-	print FILE_IN "Inconnu";
+	print FILE_IN "(Unknown)";
 }
 
 	print FILE_IN "</os>\n";

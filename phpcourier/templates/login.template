@@ -8,7 +8,7 @@
 include ("template_functions.php");
 
 open_page ("Login");
-open_content ("Welcome to the phpCourier mail administration system.");
+open_content ("Welcome to the SmartVision mail administration system.");
 echo "<span class=\"heading\">$login_msg</span><br>";
 
 echo "<div class=\"input\">";

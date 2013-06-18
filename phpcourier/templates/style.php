@@ -11,7 +11,14 @@ font-size: 16px;
     font-weight: normal;
     line-height: 1.4; 
                text-align:right; padding-right:10px; } 
-DIV.input TD { vertical-align:text-top; font-family:sans-serif; font-size:10pt; font-weight:normal; }
+DIV.input TD { display: inline-block;
+    margin: 0 2% 0 0;
+    vertical-align: top;
+    width: 20%;
+font-size: 16px;
+    font-weight: normal;
+    line-height: 1.4;
+               text-align:right; padding-right:10px; }
 
 A  { font-family:sans-serif; font-size:10pt; font-weight:bold; color:#000066; text-decoration:none; }
 A.abc { font-size:16; }
@@ -23,6 +30,7 @@ TABLE.createtbl TD { padding:5px; }
 A.create  { font-size:12pt; }
 
 .layout { box-shadow:1px 1px 12px #555; border-color:black; border-width:1px; } 
+.layout 
 .heading { font-family:arial; font-weight:bold; font-size:12pt; color:#2e473b }
 .error { font-family:sans-serif; font-size:12pt; color:#660000; font-weight:bold; }
 .confirm { font-family:sans-serif; font-size:16pt; color:#000066; font-weight:normal; }

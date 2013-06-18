@@ -1,4 +1,5 @@
 A {
+
   text-decoration: none;
 }
 A:link {
@@ -59,4 +60,19 @@ input {
     font-family: Verdana,Helvetica,sans-serif;
     font-size: 10px;
     font-weight: bold;
+}
+input[type=submit] {
+background-color: #3A78AC;
+    background-image: -moz-linear-gradient(center top , #62A0D4, #4785B9 55%, #2D6B9F 55%, #19578A);
+    border: 1px solid #333333;
+    border-radius: 18px 18px 18px 18px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3), 0 2px 2px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.6) inset;
+    color: #FFFFFF;
+    font-size: 13px;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 0 -1px rgba(0, 0, 0, 0.5);
+    text-transform: uppercase;
+    top: 9px;
+    width: 135px;
 }

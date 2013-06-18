@@ -5,10 +5,11 @@ open(PROCESS, "uptime |");
 while (defined(my $ligne = <PROCESS>))
 {
 	chomp($ligne);
-	my @items = split(' +', $ligne);
 	if ($ligne =~ m/up/)
-	{
-		print "Systeme allume depuis $items[3] \n";
+	{	
+		my @times = split(',', $ligne);
+		my @dates = split('up +', $times[0]);
+		print "Systeme allume depuis $dates[1] \n";
 	}
 	else
 	{

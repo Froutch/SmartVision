@@ -21,7 +21,8 @@
     <td width="25%">
     &nbsp;logged in as:<br>
     &nbsp;<b>{$email}</b><br>
-    &nbsp<a href="{$logout_url}">log out</a><br>
+    &nbsp;<div class="bye"><a href="{$logout_url}">log out</a></div>
+    &nbsp;<div class="bye"><a href="../../">Back to Smart Vision</a></div><br>
     </td>
 {/if}
     <td align="center">

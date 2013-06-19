@@ -4,12 +4,32 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta http-equiv="Content-Language" content="fr" />
+		<script>
+		$(document).ready(function() {
+    $(".checklist .checkbox-select").click(
+        function(event) {
+            event.preventDefault();
+            $(this).parent().addClass("selected");
+            $(this).parent().find(":checkbox").attr("checked","checked");
+        }
+    );
+
+    $(".checklist .checkbox-deselect").click(
+        function(event) {
+            event.preventDefault();
+            $(this).parent().removeClass("selected");
+            $(this).parent().find(":checkbox").removeAttr("checked");
+        }
+    );
+
+});
+		</script>
 		<title>
-			SmartConfig HD
+			SmartEditor HD
 		</title>
 	</head>
 	<body>
-	<h1>File configuration page</h1>
+	<center><h1>SmartVision file editing tool</h1></center>
 	<br>
 <?php
 	if( !isset($_GET['f']) || !$_GET['f'] || strpos('/', $_GET['f']) || strpos('..', $_GET['f']) ) $filename = "/etc/hosts";
@@ -18,11 +38,23 @@
 	if( !isset($_POST['f']) || !$_POST['f'] || strpos('/', $_POST['f']) || strpos('..', $_POST['f']) ) $filename = "/etc/hosts";
 	else $filename = $_POST['f'];
 ?>
-<h3> Open file </h3>
+<h3> Please enter here a file name </h3>
 
 	<?php echo'<form method="post" action="index.php?page=edit_config">'; ?>
 	<input type="text" name="f" required> <br>
-	<div> <p> Add to favourite </p> <input type="checkbox" name="add" /> </div> <br>
+	
+<fieldset>
+	<label for="choices">
+		<ul class="checklist">
+			<li>
+			<input type="checkbox" name="add"/>
+			<p>Click here to add your file to favourite when opening it</p>
+			</li>
+		</ul>
+	</label>
+	<div style="clear: both;"></div>
+</fieldset>
+
 	<input type="submit" value="Open file" />
 </form>
 
@@ -43,7 +75,7 @@
 	$handle = @fopen("/var/www/salman/vues/ls_etc_bind.txt", "r");
 	if ($handle) 
 	{
-		echo "Favourite files : <select onChange='change_file()' id='selectOpt'>";
+		echo "<select onChange='change_file()' id='selectOpt'>";
 		while (($buffer = fgets($handle, 4096)) !== false) 
 		{
 			$buffer = substr($buffer,0,-1);
@@ -73,7 +105,7 @@
 	
 	<?php echo'<form method="post" action="index.php?page=edit_config&f='.$filename.'">'; ?>
 		<textarea name="script_modify" cols="70" rows="30"><?php $contenu = fread(fopen($filename, "r"), filesize($filename)); print $contenu; ?></textarea>
-		<input type='submit' value='Modifier' />
+		<input type='submit' value='Apply' />
 	</form>
 
 	</body>

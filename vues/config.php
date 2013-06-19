@@ -132,25 +132,19 @@ if($type == 1)
 ?>
 <ul data-role="listview" data-split-icon="gear" data-split-theme="d">
                         <li><a href="index.php?page=terminal">
-                                <img src="design/images/button_config.png" />
+                                <img src="design/images/button_shell.png" />
                                 <h3>Shell</h3>
                                 <p>As simple as it looks like.</p>
                                 </a>
                         </li>
-                        <li><a href="index.php?page=cloud">
-                                <img src="design/images/button_config.png" />
-                                <h3>Cloud</h3>
-                                <p>Your temporary storage solution.</p>
-                                </a>
-                        </li>
                         <li><a href="index.php?page=scan">
-                                <img src="design/images/button_config.png" />
+                                <img src="design/images/button_scan.png" />
                                 <h3>Network Scan</h3>
                                 <p>Check your Network and manage your remote machines.</p>
                                 </a>
                         </li>
                         <li><a rel="external" href="index.php?page=services&host=localhost">
-                                <img src="design/images/button_config.png" />
+                                <img src="design/images/button_services.png" />
                                 <h3>Network Services</h3>
                                 <p>Watch your services available and (re)activate them !</p>
                                 </a>
@@ -162,11 +156,18 @@ if($type == 1)
                                 </a>
                         </li>
                         <li><a href="wall.html">
-                                <img src="design/images/button_config.png" />
+                                <img src="design/images/button_message.png" />
                                 <h3>Broadcast Message</h3>
                                 <p>Send a message to your workers !</p>
                                 </a>
                         </li>
+                        <li><a href="">
+                                <img src="design/images/button_graph.png" />
+                                <h3>Graphs</h3>
+                                <p></p>
+                                </a>
+                        </li>
+
 
 </ul>
 

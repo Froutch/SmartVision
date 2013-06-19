@@ -18,5 +18,5 @@ cleanup_session ();
 
 include ("templates/logout.template");
 
-echo "<a href="../index.php?page=welcome"<input type="button" value="Bouton"> Back to SmartVision</a>"
+echo '<a href="../index.php?page=welcome"<input type="button" value="Bouton"> Back to SmartVision</a>';
 ?>

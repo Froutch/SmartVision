@@ -9,7 +9,7 @@ while (defined(my $ligne = <PROCESS>))
 	{	
 		my @times = split(',', $ligne);
 		my @dates = split('up +', $times[0]);
-		print "Systeme allume depuis $dates[1] \n";
+		print $dates[1];
 	}
 	else
 	{

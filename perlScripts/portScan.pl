@@ -49,10 +49,10 @@ foreach $j (@arp_scan_line)
 	$i++;
 }
 
-open (FIC, ">", "../scan.xml");
+open (FIC, ">", "scan.xml");
 close (FIC);
 
-open (FILE_IN, ">", "../scan.xml");
+open (FILE_IN, ">", "scan.xml");
 
 
 print FILE_IN "<scan>\n";

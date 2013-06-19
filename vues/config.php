@@ -38,6 +38,24 @@ if (!function_exists("ssh2_connect")) die("function ssh2_connect doesn't exist")
                 echo"<center><h1>".$ip."</h1></center>";
         }
 
+        if($type == 1)
+        {
+                echo"<center><h4>UpTime : ";
+		system('sudo perlScripts/uptime.pl');				
+		echo"</h4></center>";
+        }
+        else
+        {
+                echo"<center><h4>UpTime : ";
+                $command='sudo /var/www/scripts/perlScripts/uptime.pl';
+                include('modeles/ssh.php');
+
+		echo"</h4></center>";
+        }
+
+
+
+
 echo'<div data-role="collapsible-set" data-theme="b" data-content-theme="d">
                                 <div data-role="collapsible">
                                         <h2>Main Informations</h2>';

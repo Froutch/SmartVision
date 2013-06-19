@@ -12,10 +12,10 @@
 	<h1>File configuration page</h1>
 	<br>
 <?php
-	if( !isset($_GET['f']) || !$_GET['f'] || strpos('/', $_GET['f']) || strpos('..', $_GET['f']) ) { }
+	if( !isset($_GET['f']) || !$_GET['f'] || strpos('/', $_GET['f']) || strpos('..', $_GET['f']) ) $filename = "/etc/hosts";
 	else $filename = $_GET['f'];
 	
-	if( !isset($_POST['f']) || !$_POST['f'] || strpos('/', $_POST['f']) || strpos('..', $_POST['f']) ) { }
+	if( !isset($_POST['f']) || !$_POST['f'] || strpos('/', $_POST['f']) || strpos('..', $_POST['f']) ) $filename = "/etc/hosts";
 	else $filename = $_POST['f'];
 ?>
 <h3> Open file </h3>

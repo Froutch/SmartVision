@@ -1,0 +1,2 @@
+/etc/hosts
+/var/www/michel/info.html

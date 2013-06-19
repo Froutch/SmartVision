@@ -7,11 +7,18 @@
 				<p>Control your mail server (powered by PHP Courier)</p>
 				</a>
 			</li>
-                        <li><a href="../smbind/src/main.php">
-                                <img src="design/images/button_mail.png" />
-                                <h3>DNS Server</h3>
+                        <li><a rel="external" href="../smbind/">
+                                <img src="design/images/button_config.png" />
+                                <h3>DNS Server (BIND)</h3>
                                 <p>(re)Configure your BIND server (powered by SMBIND)</p>
                                 </a>
                         </li>
+                        <li><a href="intDJBDNS/vegadns">
+                                <img src="design/images/button_config.png" />
+                                <h3>DNS Server (DJBDNS)</h3>
+                                <p>(re)Configure your DJBDNS server (powered by VegaDNS)</p>
+                                </a>
+                        </li>
+
 
 </ul>

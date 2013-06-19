@@ -109,7 +109,7 @@ if($type == 1)
 	echo '<a href="index.php?page=terminal" data-role="button" data-inline="true">Shell</a>';
 	echo '<a href="index.php?page=cloud" data-theme="b" data-role="button" data-inline="true">Cloud</a>';
 	echo '<a href="index.php?page=scan" data-theme="d" data-role="button" data-inline="true">Network Scan</a>';
-	echo '<a href="index.php?page=services&host='.$_GET['host'].'" data-theme="c" data-role="button" data-inline="true">Network Services</a>';
+	echo '<a rel="external" href="index.php?page=services&host='.$_GET['host'].'" data-theme="c" data-role="button" data-inline="true">Network Services</a>';
 	echo '<a href="index.php?page=modules" data-theme="a" data-role="button" data-inline="true">Modules</a>';
 }
 

@@ -31,13 +31,16 @@ if (!function_exists("ssh2_connect")) die("function ssh2_connect doesn't exist")
 }
         if($type == 1)
         {
-                echo"<h1>Localhost</h1>";
+                echo"<center><h1>Localhost</h1></center>";
         }
         else
         {
-                echo"<h1>".$ip."</h1>";
+                echo"<center><h1>".$ip."</h1></center>";
         }
 
+echo'<div data-role="collapsible-set" data-theme="b" data-content-theme="d">
+                                <div data-role="collapsible">
+                                        <h2>Main Informations</h2>';
 
         echo"<h4>";
 	if($type == 1)
@@ -102,19 +105,61 @@ if (!function_exists("ssh2_connect")) die("function ssh2_connect doesn't exist")
                 include('modeles/ssh.php');
         }
 
-        echo"</h4>";
-
 if($type == 1)
 {
-	echo '<a href="index.php?page=terminal" data-role="button" data-inline="true">Shell</a>';
-	echo '<a href="index.php?page=cloud" data-theme="b" data-role="button" data-inline="true">Cloud</a>';
-	echo '<a href="index.php?page=scan" data-theme="d" data-role="button" data-inline="true">Network Scan</a>';
-	echo '<a rel="external" href="index.php?page=services&host='.$_GET['host'].'" data-theme="c" data-role="button" data-inline="true">Network Services</a>';
-	echo '<a href="index.php?page=modules" data-theme="a" data-role="button" data-inline="true">Modules</a>';
-}
-
+        echo"</h4>";
+	echo"</div>";
+        echo'<div data-role="collapsible">';
+        echo'<h2>Main Tools</h2>';
 ?>
-<div data-role="collapsible-set" data-theme="b" data-content-theme="d">
+<ul data-role="listview" data-split-icon="gear" data-split-theme="d">
+                        <li><a href="index.php?page=terminal">
+                                <img src="design/images/button_config.png" />
+                                <h3>Shell</h3>
+                                <p>As simple as it looks like.</p>
+                                </a>
+                        </li>
+                        <li><a href="index.php?page=cloud">
+                                <img src="design/images/button_config.png" />
+                                <h3>Cloud</h3>
+                                <p>Your temporary storage solution.</p>
+                                </a>
+                        </li>
+                        <li><a href="index.php?page=scan">
+                                <img src="design/images/button_config.png" />
+                                <h3>Network Scan</h3>
+                                <p>Check your Network and manage your remote machines.</p>
+                                </a>
+                        </li>
+                        <li><a rel="external" href="index.php?page=services&host=localhost">
+                                <img src="design/images/button_config.png" />
+                                <h3>Network Services</h3>
+                                <p>Watch your services available and (re)activate them !</p>
+                                </a>
+                        </li>
+                        <li><a href="index.php?page=modules">
+                                <img src="design/images/button_config.png" />
+                                <h3>Modules</h3>
+                                <p>Some useful modules for your server.</p>
+                                </a>
+                        </li>
+                        <li><a href="wall.html">
+                                <img src="design/images/button_config.png" />
+                                <h3>Broadcast Message</h3>
+                                <p>Send a message to your workers !</p>
+                                </a>
+                        </li>
+
+</ul>
+
+<?php
+}
+?>
+
+</div>
+</div>
+
+<div data-role="collapsible-set" data-theme="c" data-content-theme="d">
 				<div data-role="collapsible">
 					<h2>CPU Architecture</h2>
 <?php

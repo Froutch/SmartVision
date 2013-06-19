@@ -6,11 +6,11 @@ if(!empty($_GET['service']))
 {
 	if($_GET['value'] == 1)
 	{
-		system('sudo /etc/init.d/'.$_GET['service'].' start');
+		system('sudo chkconfig '.$_GET['service'].' on');
 	}
 	if($_GET['value'] == 0)
 	{
-		system('sudo /etc/init.d/'.$_GET['service'].' stop');
+		system('sudo chkconfig '.$_GET['service'].' off');
 	}
 }
 

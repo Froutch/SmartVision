@@ -149,6 +149,13 @@ if($type == 1)
                                 <p>Watch your services available and (re)activate them !</p>
                                 </a>
                         </li>
+                        <li><a rel="external" href="index.php?page=edit_config">
+                                <img src="design/images/button_config.png" />
+                                <h3>File Editor</h3>
+                                <p>Edit any file and add it to your favourites !</p>
+                                </a>
+                        </li>
+
                         <li><a href="index.php?page=modules">
                                 <img src="design/images/button_config.png" />
                                 <h3>Modules</h3>

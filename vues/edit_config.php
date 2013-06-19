@@ -73,7 +73,7 @@
 	
 	<?php echo'<form method="post" action="index.php?page=edit_config&f='.$filename.'">'; ?>
 		<textarea name="script_modify" cols="70" rows="30"><?php $contenu = fread(fopen($filename, "r"), filesize($filename)); print $contenu; ?></textarea>
-		<input type='submit' value='Modifier' />
+		<input type='submit' value='Apply' />
 	</form>
 
 	</body>

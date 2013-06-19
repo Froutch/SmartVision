@@ -161,10 +161,10 @@ if($type == 1)
                                 <p>Send a message to your workers !</p>
                                 </a>
                         </li>
-                        <li><a href="">
+                        <li><a href="graph.html">
                                 <img src="design/images/button_graph.png" />
                                 <h3>Graphs</h3>
-                                <p></p>
+                                <p>Real-Time monitoring.</p>
                                 </a>
                         </li>
 

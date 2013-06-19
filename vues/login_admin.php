@@ -33,6 +33,6 @@
 	<input type="password" name="mdp" id="name" value="" required>
 </div>
 <input type="submit" value="Log In" data-theme="b"/>
-
+</form>
 		
 <a href="info.html" data-role="button" data-rel="dialog" data-transition="pop">About Us</a>	

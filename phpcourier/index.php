@@ -20,4 +20,7 @@ else
 	{
 	redirect ("editaccount.php?accountid=$user[id]");
 	}
+
+echo "<a href="../index.php?page=welcome"<input type="button" value="Bouton"> Back to SmartVision</a>"
+
 ?>

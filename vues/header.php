@@ -11,8 +11,9 @@
 	<link rel="stylesheet" href="design/config_file.css" />
 	<script src="js/jquery-1.7.1.min.js"></script>
 
-	<script src="js/jquery.mobile.custom.js"></script>
 	
+	<script src="js/jquery.mobile.custom.js"></script>
+	<script src="js/config_file.js"></script>
 </head>
 <body>
 <!-- Barre d'outils qui ne s'affiche que lorsqu'on est connecté -->

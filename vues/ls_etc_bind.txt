@@ -1,2 +1,5 @@
 /etc/hosts
 /var/www/michel/info.html
+/var/www/salman/vues/edit_config.php
+/var/www/michel/index.php
+/var/www/vues/bind_config.php

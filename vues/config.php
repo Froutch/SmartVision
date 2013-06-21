@@ -17,6 +17,7 @@ else
                 $login = $data['login'];
                 $mdp = $data['mdp'];
                 $ip = $data['ip'];
+				$_SESSION['machine_host'] = $ip;
         }
 
 if (!function_exists("ssh2_connect")) die("function ssh2_connect doesn't exist");
@@ -123,6 +124,20 @@ echo'<div data-role="collapsible-set" data-theme="b" data-content-theme="d">
                 include('modeles/ssh.php');
         }
 
+if($type == 2)
+{
+?>
+<br><br>
+<ul data-role="listview" data-split-icon="gear" data-split-theme="d">
+	<?php echo'<li><a href="graph_host.php">'; ?>
+			<img src="design/images/button_graph.png" />
+			<h3>Graphs</h3>
+			<p>Real-Time monitoring.</p>
+			</a>
+	</li>
+</ul>
+<?php
+}
 if($type == 1)
 {
         echo"</h4>";
@@ -174,7 +189,6 @@ if($type == 1)
                                 <p>Real-Time monitoring.</p>
                                 </a>
                         </li>
-
 
 </ul>
 

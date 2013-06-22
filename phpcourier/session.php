@@ -81,7 +81,7 @@ function login_page ($login_msg)
 */
 function login_form ()
 {
-	echo "<form action=\"$_SERVER[PHP_SELF]\" method=\"post\">";
+	echo "<br><br><center><form action=\"$_SERVER[PHP_SELF]\" method=\"post\">";
 	echo "<input type=\"hidden\" name=\"action\" value=\"login\">";
 
 	// Carry any parameters forward to this form so they are resubmitted
@@ -119,7 +119,7 @@ function login_form ()
 	echo "</td></tr>";
 
 	echo "</table>";
-	echo "</form>";
+	echo "</form></center>";
 }
 
 /************************************************************

@@ -10,7 +10,7 @@
 			</div>
 
 
-			<p class="intro"><center><strong>Hi there !</strong> Please <strong>log in</strong> with your <strong>SmartVision</strong> personal account (:</center></p>
+			<p class="intro"><center><strong>Hi there !</strong> Please <strong>log in</strong> with your <strong>SmartVision</strong> personal account </center></p>
 </div>
 <form action="index.php?page=connect" method="post">
 	<input type="hidden" name="page" value="connect"/>
@@ -18,7 +18,7 @@
 <?php
 	if(isset($login_error) && $login_error == 1)
 	{
-		echo "<center><a href='' data-role='button' data-theme='e' data-inline='true' data-transition='pop'>Your login is <strong>totally</strong> wrong ! :(</a></center>";
+		echo "<center><a href='' data-role='button' data-theme='e' data-inline='true' data-transition='pop'> Your login is <strong>totally</strong> wrong ! </a></center>";
 	}
 ?>
 

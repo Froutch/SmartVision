@@ -5,24 +5,20 @@ open(PROCESS, "free -m|");
 while (defined(my $ligne = <PROCESS>))
 {
 	if ($ligne =~ m/Mem/)
-        {	
-		chomp($ligne);
-             	my @items = split(' +', $ligne);
-		print "$items[1] Mo ";
-        }
-
-	if ($ligne =~ m/buffers/)
 	{
 		chomp($ligne);
-		print "$items[3]/ \n";
-	}
-
-	else
+		my @cats = split(' +', $ligne);
+		$total = $cats[1];
+	}		
+	elsif ($ligne =~ m/buffers\/cache/)
 	{
-		$ligne++;
+		chomp($ligne);
+		my @items = split(' +', $ligne);
+		$used = $items[2];
 	}
-	#$pct = (($items[2]/$items[1])*100);
-	#$pct = sprintf("%.2f", $pct);
-	#print "($pct % used)";
-	
 }
+
+print "$used/$total Mo ";
+$pct=(($used/$total)*100);
+$pct = sprintf("%.2f", $pct);
+print "($pct % used)";

@@ -28,9 +28,17 @@
 
 			<h2>Network Bandwidth</h2>
 			<h3>Per Hour</h3>
-<?php echo'<img src="'.$_SESSION["machine_host"].'/var/www/scripts/perlScripts/bandwidth.png"/>'; ?>
+<?php 
+
+system("mkdir /var/www/".$_SESSION["machine_host"]."");
+system("sudo rm /var/www/".$_SESSION["machine_host"]."/bandwidth.png");
+system("sudo rm /var/www/".$_SESSION["machine_host"]."/bandwidthDAY.png");
+system("sudo wget --directory-prefix='/var/www/".$_SESSION["machine_host"]."' ".$_SESSION["machine_host"]."/scripts/perlScripts/bandwidth.png");
+system("sudo wget --directory-prefix='/var/www/".$_SESSION["machine_host"]."' ".$_SESSION["machine_host"]."/scripts/perlScripts/bandwidthDAY.png");
+
+echo'<img src="/'.$_SESSION["machine_host"].'/bandwidth.png"/>'; ?>
 <h3>Per Day</h3>
-<?php echo'<img src="'.$_SESSION["machine_host"].'/var/www/scripts/perlScripts/bandwidthDAY.png"/>'; ?>
+<?php echo'<img src="/'.$_SESSION["machine_host"].'/bandwidthDAY.png"/>'; ?>
 </center>
 <a data-role="button" data-rel="back" data-theme="a">Back</a>          
 		</div>
